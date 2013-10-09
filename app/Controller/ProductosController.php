@@ -20,10 +20,28 @@ class ProductosController extends AppController {
  *
  * @return void
  */
-	public function index() {
+/*	public function index() {
 		$this->Producto->recursive = 0;
 		$this->set('productos', $this->Paginator->paginate());
 	}
+
+/**
+ * index method
+ *
+ * @return void
+ */
+	public function index() {
+		$cartucho = $this->Producto->Cartucho->find('');
+		$this->set(compact('cartuchos'));
+		$tintas = $this->Producto->Tinta->find('list');
+		$this->set(compact('tintas'));
+		$recipientes = $this->Producto->Recipiente->find('list');
+		$this->set(compact('recipientes'));		
+		
+		$this->Producto->recursive = 0;
+		$this->set('productos', $this->Paginator->paginate());
+	}
+
 
 /**
  * view method

@@ -7,7 +7,7 @@
 		echo $this->Form->input('password');
 		//echo $this->Form->input('role');
 		echo $this->Form->input('role', array(
-            'options' => array('admin' => 'Admin', 'client' => 'Client')
+            'options' => array('admin' => 'admin', 'client' => 'client')
         ));
 		echo $this->Form->input('name');
 		echo $this->Form->input('surname');

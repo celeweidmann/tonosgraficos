@@ -109,5 +109,9 @@ class Pedido extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+	
+	public function isOwnedBy($pedido, $user) {
+    	return $this->field('id', array('id' => $pedido, 'user_id' => $user)) === $pedido;
+	}
 
 }

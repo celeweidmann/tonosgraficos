@@ -15,6 +15,21 @@ class PedidosController extends AppController {
  */
 	public $components = array('Paginator');
 
+	public function isAuthorized($user) {
+    	// All registered users can add pedidos
+    	if ($this->action === 'add') {
+	        return true;
+    	}
+    	// The owner of a pedido can edit and delete it
+    	if (in_array($this->action, array('edit', 'delete'))) {
+        	$pedidoId = $this->request->params['pass'][0];
+        	if ($this->Pedido->isOwnedBy($pedidoId, $user['id'])) {
+            	return true;
+        	}
+    	}
+		return parent::isAuthorized($user);
+	}
+
 /**
  * index method
  *
@@ -46,6 +61,7 @@ class PedidosController extends AppController {
  * @return void
  */
 	public function add() {
+		// para lista de opciones en la vista
 		$estados = $this->Pedido->Estado->find('list');
 		$this->set(compact('estados'));
 		$transportes = $this->Pedido->Transporte->find('list');
@@ -53,6 +69,7 @@ class PedidosController extends AppController {
 		$users = $this->Pedido->User->find('list');
 		$this->set(compact('users'));
 		if ($this->request->is('post')) {
+			$this->request->data['Pedido']['user_id'] = $this->Auth->user('id');
 			$this->Pedido->create();
 			if ($this->Pedido->save($this->request->data)) {
 				$this->Session->setFlash(__('The pedido has been saved.'));
