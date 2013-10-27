@@ -67,7 +67,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => 'mysql',
-		'database' => 'tonosgraficos',
+		'database' => 'tg',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

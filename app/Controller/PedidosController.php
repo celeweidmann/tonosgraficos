@@ -123,4 +123,37 @@ class PedidosController extends AppController {
 			$this->Session->setFlash(__('The pedido could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+/**
+ * agregar method
+ *
+ * @return void
+ */
+	public function agregar() {
+		// para lista de opciones en la vista
+		$estados = $this->Pedido->Estado->find('list');
+		$this->set(compact('estados'));
+		$transportes = $this->Pedido->Transporte->find('list');
+		$this->set(compact('transportes'));
+		
+		//$users = $this->Pedido->User->find('list');
+		$users = $this->Pedido->User->find('first', array(
+										'conditions' => array('User.id' => $this->Auth->user('id'))));
+		$this->set(compact('users'));
+		$this->set('id', $this->Pedido->id);
+		
+		if ($this->request->is('post')) {
+			$this->request->data['Pedido']['user_id'] = $this->Auth->user('id');
+			$this->Pedido->create();
+			if ($this->Pedido->save($this->request->data)) {
+				$this->Session->setFlash(__('The pedido has been saved.'));
+				//return $this->redirect(array('action' => 'index'));
+				//return $this->redirect(array('controller' => 'items', 'action' =>'solicitar', $this->Pedido->data['Pedido']['id']));
+				return $this->redirect(array('controller' => 'items', 'action' =>'solicitar', $this->Pedido->id));
+			} else {
+				$this->Session->setFlash(__('The pedido could not be saved. Please, try again.'));
+			}
+		}
+	}
+}

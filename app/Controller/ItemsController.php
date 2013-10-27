@@ -14,7 +14,8 @@ class ItemsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
-
+	public $helpers = array('Js');
+	
 /**
  * index method
  *
@@ -99,5 +100,68 @@ class ItemsController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The item could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
-	}}
+		return $this->redirect(array('action' => 'solicitar'));
+	}
+
+	/**
+ 	 * solicitar method
+ 	 *
+ 	 * @throws NotFoundException
+ 	 * @param string $id
+ 	 * @return void
+ 	 */
+	public function solicitar($id=null) {
+		$marcas = $this -> Item -> Producto -> Cartucho -> Modelo -> Marca -> find('list');
+		$modelos = $this -> Item -> Producto -> Cartucho -> Modelo -> find('list');
+		$cartuchos = $this -> Item -> Producto -> Cartucho -> find('list');
+		$tintas = $this -> Item -> Producto->Tinta->find('list');
+		$recipientes = $this-> Item -> Producto->Recipiente->find('list');
+		//$this -> set(compact('marcas', 'modelos', 'cartuchos', 'tintas', 'recipientes'));
+		
+		//Se obtienen los items del mismo pedido para listarlos
+		$items = $this->Item->find('all', array(
+								'conditions' => array(	'pedido_id' => $id)));
+								
+		$this -> set(compact('marcas', 'modelos', 'cartuchos', 'tintas', 'recipientes', 'items'));
+		
+
+	//	debug($this->Item->Producto->Tinta);
+		
+		if ($this->request->is('post')) {
+			$this->Item->set('pedido_id', $id);
+			
+			//Se obtiene el producto a partir de la selección que hizo el usuario.
+			$productos = $this->Item->Producto->find('first', array(
+							'conditions' => array(	'Producto.cartucho_id' => $this->request->data['Item']['cartucho_id'],
+													'Producto.tinta_id' => $this->request->data['Item']['tinta'],
+													'Producto.recipiente_id' => $this->request->data['Item']['recipiente'])));
+			debug($productos);
+					
+			$this->Item->create();
+
+			if ($this->Item->save($this->request->data )) {
+				$this->Item->saveField('costo', $productos['Producto']['precio'] );
+				$this->Item->saveField('producto_id', $productos['Producto']['id']);
+				$this->Item->saveField('pedido_id', $id);
+				
+				$tinta = $this->Item->Producto->Tinta->find('first', array(
+																	'conditions' => array(
+																		'id' =>$this->request->data['Item']['tinta'] 
+																				)));
+				$this->Item->saveField('tinta', $tinta['Tinta']['name']);
+				
+				$recipiente = $this->Item->Producto->Recipiente->find('first', array(
+																	'conditions' => array(
+																		'id' =>$this->request->data['Item']['recipiente'] 
+																				)));
+				$this->Item->saveField('recipiente', $recipiente['Recipiente']['name']);
+				
+				$this->Session->setFlash(__('The item has been saved.'));
+				return $this->redirect(array('controller' => 'items', 'action' => 'solicitar', $id));
+			} else {
+				$this->Session->setFlash(__('The item could not be saved. Please, try again.'));
+			}
+		}
+     }	
+
+}
