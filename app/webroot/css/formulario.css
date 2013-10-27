@@ -1,0 +1,144 @@
+/* line 1, ../sass/formulario.sass */
+form {
+  clear: both;
+  margin-right: 20px;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  width: 95%;
+}
+
+/* line 12, ../sass/formulario.sass */
+form div {
+  clear: both;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.1em;
+  vertical-align: text-top;
+}
+
+/* line 20, ../sass/formulario.sass */
+* {
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+
+/* line 32, ../sass/formulario.sass */
+form div.submit {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-bottom-color: -moz-use-text-color;
+  border-bottom-style: none;
+  border-bottom-width: 0;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-source: none;
+  border-image-width: 1 1 1 1;
+  border-top-color: -moz-use-text-color;
+  border-top-style: none;
+  border-top-width: 0;
+  clear: both;
+  margin-top: 10px;
+}
+
+/* line 51, ../sass/formulario.sass */
+label {
+  display: block;
+  font-size: 100%;
+  margin-bottom: 3px;
+}
+
+/* line 56, ../sass/formulario.sass */
+input, textarea {
+  clear: both;
+  padding-bottom: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  width: 98%;
+}
+
+/* line 64, ../sass/formulario.sass */
+select {
+  clear: both;
+  font-size: 120%;
+  vertical-align: text-bottom;
+}
+
+/* line 69, ../sass/formulario.sass */
+select[multiple="multiple"] {
+  width: 100%;
+}
+
+/* line 72, ../sass/formulario.sass */
+option {
+  font-size: 100%;
+  padding-bottom: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 0;
+}
+
+/* line 80, ../sass/formulario.sass */
+input[type="checkbox"] {
+  clear: left;
+  float: left;
+  margin-bottom: 7px;
+  margin-left: 2px;
+  margin-right: 6px;
+  margin-top: 0;
+  width: auto;
+}
+
+/* line 89, ../sass/formulario.sass */
+input[type="submit"] {
+  color: white;
+  background-color: #428bca;
+  border-color: #357ebd;
+  width: auto;
+}
+
+/* line 95, ../sass/formulario.sass */
+form .submit input[type="submit"] {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  color: white;
+  background-color: #428bca;
+  border-color: #357ebd;
+  width: auto;
+}
+
+/* line 118, ../sass/formulario.sass */
+form .submit input[type="submit"]:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #3276b1;
+  border-color: #285e8e;
+  width: auto;
+}

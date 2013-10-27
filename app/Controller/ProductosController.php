@@ -15,6 +15,8 @@ class ProductosController extends AppController {
  */
 	public $components = array('Paginator');
 
+	public $helpers = array('Js');
+	
 /**
  * index method
  *
@@ -31,7 +33,7 @@ class ProductosController extends AppController {
  * @return void
  */
 	public function index() {
-		$cartucho = $this->Producto->Cartucho->find('');
+		$cartucho = $this->Producto->Cartucho->find('list');
 		$this->set(compact('cartuchos'));
 		$tintas = $this->Producto->Tinta->find('list');
 		$this->set(compact('tintas'));
@@ -66,6 +68,10 @@ class ProductosController extends AppController {
 	public function add() {
 		$cartuchos = $this->Producto->Cartucho->find('list');
 		$this->set(compact('cartuchos'));
+		
+		//$modelos = $this->Producto->Cartucho->Modelo->find('list');
+		//$this->set(compact('modelos'));
+		
 		$tintas = $this->Producto->Tinta->find('list');
 		$this->set(compact('tintas'));
 		$recipientes = $this->Producto->Recipiente->find('list');
@@ -124,4 +130,22 @@ class ProductosController extends AppController {
 			$this->Session->setFlash(__('The producto could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+	/**
+ 	 * delete method
+ 	 *
+ 	 * @throws NotFoundException
+ 	 * @param string $id
+ 	 * @return void
+ 	 */
+	public function solicitar() {
+		$marcas = $this -> Producto -> Cartucho -> Modelo -> Marca -> find('list');
+		$modelos = $this -> Producto -> Cartucho -> Modelo -> find('list');
+		$cartuchos = $this -> Producto -> Cartucho -> find('list');
+		$tintas = $this->Producto->Tinta->find('list');
+		$recipientes = $this->Producto->Recipiente->find('list');
+		$this -> set(compact('marcas', 'modelos', 'cartuchos', 'tintas', 'recipientes'));
+     }	
+
+}

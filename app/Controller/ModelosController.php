@@ -67,6 +67,9 @@ class ModelosController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+		$marcas = $this->Modelo->Marca->find('list');
+		$this->set(compact('marcas'));
+			
 		if (!$this->Modelo->exists($id)) {
 			throw new NotFoundException(__('Invalid modelo'));
 		}
@@ -102,4 +105,33 @@ class ModelosController extends AppController {
 			$this->Session->setFlash(__('The modelo could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+	/*
+	 * Necesario para hacer los select dependientes
+	 * 
+	 */
+	public function getByMarca() {
+		$marca_id = $this->request->data['Producto']['marca_id'];
+ 
+		$modelos = $this->Modelo->find('list', array(
+			'conditions' => array('Modelo.marca_id' => $marca_id),
+			'recursive' => -1
+			));
+ 
+		$this->set('modelos',$modelos);
+		$this->layout = 'ajax';
+	}
+	
+	public function getItemByMarca() {
+		$marca_id = $this->request->data['Item']['marca_id'];
+ 
+		$modelos = $this->Modelo->find('list', array(
+			'conditions' => array('Modelo.marca_id' => $marca_id),
+			'recursive' => -1
+			));
+ 
+		$this->set('modelos',$modelos);
+		$this->layout = 'ajax';
+	}
+}

@@ -20,6 +20,7 @@
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
 <!DOCTYPE html>
+<html lang="en">
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
@@ -30,7 +31,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->meta('icon');
 		
 		echo $this->Html->css('bootstrap');
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('layout');
+	//	echo $this->Html->css('cake.generic');
 		
 		# Scripts
 		echo $this -> Html -> script(array('jquery', 'dropdown'));
@@ -39,6 +41,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<div id="container">
@@ -73,7 +76,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     				<ul class="dropdown-menu">
       					<li><?php echo $this->Html->link('Pedido', array('controller'=>'pedidos', 'action'=>'index'))?></li>
 		   				<li><?php echo $this->Html->link('Item', array('controller'=>'items', 'action'=>'index'))?></li>
-		   				<li><?php echo $this->Html->link('producto', array('controller'=>'productos', 'action'=>'index'))?></li>
+		   				<li><?php echo $this->Html->link('Producto', array('controller'=>'productos', 'action'=>'index'))?></li>
 		   				<li><?php echo $this->Html->link('Transporte', array('controller'=>'transportes', 'action'=>'index'))?></li>
 		   				<li><?php echo $this->Html->link('Estado', array('controller'=>'estados', 'action'=>'index'))?></li>
     				</ul>
@@ -84,7 +87,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		   	</ul>
 		</nav>	
 
-		<div id="content">
+		<div id="content" class="container">
 <!--			<div class="col-md-2">
 				
 				
@@ -96,15 +99,27 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<?php echo $this->fetch('content'); ?>
 			<!--</div>-->
 		</div>
-		<div id="footer">
+		<div class="footer" id="footer">
+			<div class="text-center">
+				Esperanza - Santa Fe - Argentina
+			</div>
+			<!--
 			<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
 					'http://www.cakephp.org/',
 					array('target' => '_blank', 'escape' => false)
 				);
-			?>
+			?>-->
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<!-- scripts_for_layout -->
+	<?php echo $scripts_for_layout; ?>
+	<!-- Js writeBuffer -->
+	<?php
+	if (class_exists('JsHelper') && method_exists($this->Js, 'writeBuffer')) echo $this->Js->writeBuffer();
+	// Writes cached scripts
+	?>
 </body>
 </html>

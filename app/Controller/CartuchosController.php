@@ -67,6 +67,8 @@ class CartuchosController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+		$modelos = $this->Cartucho->Modelo->find('list');
+		$this->set(compact('modelos'));
 		if (!$this->Cartucho->exists($id)) {
 			throw new NotFoundException(__('Invalid cartucho'));
 		}
@@ -102,4 +104,33 @@ class CartuchosController extends AppController {
 			$this->Session->setFlash(__('The cartucho could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+	/*
+	 * Necesario para hacer los select dependientes
+	 * 
+	 */
+	public function getByModelo() {
+		$modelo_id = $this->request->data['Producto']['modelo_id'];
+ 
+		$cartuchos = $this->Cartucho->find('list', array(
+			'conditions' => array('Cartucho.modelo_id' => $modelo_id),
+			'recursive' => -1
+			));
+ 
+		$this->set('cartuchos',$cartuchos);
+		$this->layout = 'ajax';
+	}
+	
+	public function getItemByModelo() {
+		$modelo_id = $this->request->data['Item']['modelo_id'];
+ 
+		$cartuchos = $this->Cartucho->find('list', array(
+			'conditions' => array('Cartucho.modelo_id' => $modelo_id),
+			'recursive' => -1
+			));
+ 
+		$this->set('cartuchos',$cartuchos);
+		$this->layout = 'ajax';
+	}
+}
