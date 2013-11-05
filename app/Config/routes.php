@@ -32,6 +32,17 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
+	Router::connect('/admin', array('controller' => 'cartuchos', 'action' => 'add, edit, delete', 'admin' => true));
+	Router::connect('/admin', array('controller' => 'estados', 'action' => 'add, edit, delete', 'admin' => true));
+	Router::connect('/admin', array('controller' => 'items', 'action' => 'add, edit, delete', 'admin' => true));
+	Router::connect('/admin', array('controller' => 'marcas', 'action' => 'add, edit, delete', 'admin' => true));
+	Router::connect('/admin', array('controller' => 'modelos', 'action' => 'add, edit, delete', 'admin' => true));
+	Router::connect('/admin', array('controller' => 'pedidos', 'action' => 'add, edit, delete', 'admin' => true));
+	Router::connect('/admin', array('controller' => 'productos', 'action' => 'add, edit, delete', 'admin' => true));
+	Router::connect('/admin', array('controller' => 'recipientes', 'action' => 'add, edit, delete', 'admin' => true));
+	Router::connect('/admin', array('controller' => 'tintas', 'action' => 'add, edit, delete', 'admin' => true));
+	Router::connect('/admin', array('controller' => 'transportes', 'action' => 'add, edit, delete', 'admin' => true));
+	
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

@@ -20,7 +20,7 @@ class RecipientesController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Recipiente->recursive = 0;
 		$this->set('recipientes', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class RecipientesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Recipiente->exists($id)) {
 			throw new NotFoundException(__('Invalid recipiente'));
 		}
@@ -45,7 +45,7 @@ class RecipientesController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Recipiente->create();
 			if ($this->Recipiente->save($this->request->data)) {
@@ -64,7 +64,7 @@ class RecipientesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Recipiente->exists($id)) {
 			throw new NotFoundException(__('Invalid recipiente'));
 		}
@@ -88,7 +88,7 @@ class RecipientesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Recipiente->id = $id;
 		if (!$this->Recipiente->exists()) {
 			throw new NotFoundException(__('Invalid recipiente'));

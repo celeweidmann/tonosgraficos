@@ -35,6 +35,16 @@ class PedidosController extends AppController {
  *
  * @return void
  */
+	public function admin_index() {
+		$this->Pedido->recursive = 0;
+		$this->set('pedidos', $this->Paginator->paginate());
+	}
+
+/**
+ * index method
+ *
+ * @return void
+ */
 	public function index() {
 		$this->Pedido->recursive = 0;
 		$this->set('pedidos', $this->Paginator->paginate());
@@ -47,7 +57,7 @@ class PedidosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Pedido->exists($id)) {
 			throw new NotFoundException(__('Invalid pedido'));
 		}
@@ -55,12 +65,13 @@ class PedidosController extends AppController {
 		$this->set('pedido', $this->Pedido->find('first', $options));
 	}
 
+
 /**
  * add method
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		// para lista de opciones en la vista
 		$estados = $this->Pedido->Estado->find('list');
 		$this->set(compact('estados'));
@@ -87,7 +98,7 @@ class PedidosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Pedido->exists($id)) {
 			throw new NotFoundException(__('Invalid pedido'));
 		}
@@ -111,7 +122,7 @@ class PedidosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Pedido->id = $id;
 		if (!$this->Pedido->exists()) {
 			throw new NotFoundException(__('Invalid pedido'));
@@ -125,6 +136,7 @@ class PedidosController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
+     
 /**
  * agregar method
  *
@@ -136,7 +148,7 @@ class PedidosController extends AppController {
 		$this->set(compact('estados'));
 		$transportes = $this->Pedido->Transporte->find('list');
 		$this->set(compact('transportes'));
-		
+			
 		//$users = $this->Pedido->User->find('list');
 		$users = $this->Pedido->User->find('first', array(
 										'conditions' => array('User.id' => $this->Auth->user('id'))));
@@ -156,4 +168,5 @@ class PedidosController extends AppController {
 			}
 		}
 	}
+	
 }

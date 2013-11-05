@@ -20,7 +20,7 @@ class MarcasController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Marca->recursive = 0;
 		$this->set('marcas', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class MarcasController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Marca->exists($id)) {
 			throw new NotFoundException(__('Invalid marca'));
 		}
@@ -45,7 +45,7 @@ class MarcasController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Marca->create();
 			if ($this->Marca->save($this->request->data)) {
@@ -64,7 +64,7 @@ class MarcasController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Marca->exists($id)) {
 			throw new NotFoundException(__('Invalid marca'));
 		}
@@ -88,7 +88,7 @@ class MarcasController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Marca->id = $id;
 		if (!$this->Marca->exists()) {
 			throw new NotFoundException(__('Invalid marca'));

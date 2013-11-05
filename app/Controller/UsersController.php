@@ -20,6 +20,7 @@ class UsersController extends AppController {
         $this->Auth->allow('add', 'login', 'logout');
     }
 
+
 /**
  * login method
  *

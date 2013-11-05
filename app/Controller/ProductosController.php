@@ -32,6 +32,23 @@ class ProductosController extends AppController {
  *
  * @return void
  */
+	public function admin_index() {
+		$cartucho = $this->Producto->Cartucho->find('list');
+		$this->set(compact('cartuchos'));
+		$tintas = $this->Producto->Tinta->find('list');
+		$this->set(compact('tintas'));
+		$recipientes = $this->Producto->Recipiente->find('list');
+		$this->set(compact('recipientes'));		
+		
+		$this->Producto->recursive = 0;
+		$this->set('productos', $this->Paginator->paginate());
+	}
+
+/**
+ * index method
+ *
+ * @return void
+ */
 	public function index() {
 		$cartucho = $this->Producto->Cartucho->find('list');
 		$this->set(compact('cartuchos'));
@@ -44,7 +61,6 @@ class ProductosController extends AppController {
 		$this->set('productos', $this->Paginator->paginate());
 	}
 
-
 /**
  * view method
  *
@@ -52,7 +68,7 @@ class ProductosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function adin_view($id = null) {
 		if (!$this->Producto->exists($id)) {
 			throw new NotFoundException(__('Invalid producto'));
 		}
@@ -65,7 +81,7 @@ class ProductosController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		$cartuchos = $this->Producto->Cartucho->find('list');
 		$this->set(compact('cartuchos'));
 		
@@ -94,7 +110,7 @@ class ProductosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Producto->exists($id)) {
 			throw new NotFoundException(__('Invalid producto'));
 		}
@@ -118,7 +134,7 @@ class ProductosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Producto->id = $id;
 		if (!$this->Producto->exists()) {
 			throw new NotFoundException(__('Invalid producto'));
