@@ -35,10 +35,25 @@ class PedidosController extends AppController {
  *
  * @return void
  */
-	public function index() {
+/*	public function index() {
 		$this->Pedido->recursive = 0;
 		$this->set('pedidos', $this->Paginator->paginate());
 	}
+*/
+/**
+ * indexUser method
+ *
+ * @return void
+ */
+	public function index() {
+		$this->Pedido->recursive = 0;
+		
+		$pedidos = $this->Pedido->find('all', array(
+										'conditions' => array(
+											'user_id' => $this->Pedido->User->read())));
+		$this->set('pedidos',  $this->Paginator->paginate($pedidos));
+	}
+
 
 /**
  * view method
@@ -147,6 +162,10 @@ class PedidosController extends AppController {
 			$this->request->data['Pedido']['user_id'] = $this->Auth->user('id');
 			$this->Pedido->create();
 			if ($this->Pedido->save($this->request->data)) {
+				
+				//Al crearse el pedido se encuentra en estado=BORRADOR
+				$this->Pedido->saveField('estado_id', 1);
+				
 				$this->Session->setFlash(__('The pedido has been saved.'));
 				//return $this->redirect(array('action' => 'index'));
 				//return $this->redirect(array('controller' => 'items', 'action' =>'solicitar', $this->Pedido->data['Pedido']['id']));
@@ -155,5 +174,43 @@ class PedidosController extends AppController {
 				$this->Session->setFlash(__('The pedido could not be saved. Please, try again.'));
 			}
 		}
+	}
+
+ /**
+  * confirmar method
+  *
+  * @return void
+  */
+	public function confirmar($id=null){
+		$this->autoRender = false;
+		$pedidos = $this->Pedido->findById($id);
+		$this->Pedido->read(null, $pedidos['Pedido']['id']);
+		$this->Pedido->saveField('estado_id', 2);
+		//Enviar mail a TonosGráficos y al usuario
+		
+		return $this->redirect(array('controller' => 'pedidos', 'action' =>'index'));	
+	}
+
+ /**
+  * cancelar method
+  *
+  * @return void
+  */
+	public function cancelar($id=null){
+		$this->autoRender = false;
+		$pedido = $this->Pedido->findById($id);
+		
+		//Eliminar Items del pedido
+		$items = $this->Pedido->Item->find('all', array(
+												'conditions' => array(
+													'Item.pedido_id' => $id)));
+		foreach ($items as $item):
+			$this->Pedido->Item->delete($item['Item']['id']);
+		endforeach;
+		
+		//Eliminar Pedido
+		$this->Pedido->delete($id);
+		
+		return $this->redirect(array('controller' => 'pedidos', 'action' =>'index'));	
 	}
 }

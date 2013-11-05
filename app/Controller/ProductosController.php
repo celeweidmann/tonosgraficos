@@ -17,6 +17,7 @@ class ProductosController extends AppController {
 
 	public $helpers = array('Js');
 	
+	
 /**
  * index method
  *

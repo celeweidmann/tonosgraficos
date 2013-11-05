@@ -68,9 +68,12 @@
 			</tfoot>
 		</table>
 		<div class="row text-right">
-			<button class="btn btn-warning">Cancelar</button>
-			<button class="btn btn-success">Confirmar Pedido</button>
-			<!--<?php echo $this->Html->link(__('Confirmar'), array('controller'=>'','action' => 'confirmar')); ?>-->
+			<?php echo $this->Html->link(__('Cancelar'), array(
+												'controller'=>'pedidos','action' => 'cancelar', $item['Item']['pedido_id'], null), 
+												array('class'=>'btn btn-warning')); ?>
+			<?php echo $this->Html->link(__('Confirmar Pedido'), array(
+												'controller'=>'pedidos','action' => 'confirmar', $item['Item']['pedido_id'], null), 
+												array('class'=>'btn btn-success')); ?>
 		</div>
 	</div>
 </div>

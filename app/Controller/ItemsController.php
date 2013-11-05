@@ -135,7 +135,7 @@ class ItemsController extends AppController {
 							'conditions' => array(	'Producto.cartucho_id' => $this->request->data['Item']['cartucho_id'],
 													'Producto.tinta_id' => $this->request->data['Item']['tinta'],
 													'Producto.recipiente_id' => $this->request->data['Item']['recipiente'])));
-			debug($productos);
+			//debug($productos);
 					
 			$this->Item->create();
 
@@ -163,5 +163,4 @@ class ItemsController extends AppController {
 			}
 		}
      }	
-
 }
