@@ -20,37 +20,37 @@
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
 <!DOCTYPE html>
+<html lang="en">
+<html>
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
 		Tonos Gráficos
 	</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php
 		echo $this->Html->meta('icon');
 		
 		echo $this->Html->css('bootstrap');
 		echo $this->Html->css('layout');
-		
 	//	echo $this->Html->css('cake.generic');
 		
 		# Scripts
-		echo $this -> Html -> script(array('jquery', 'dropdown', 'bootstrap.min'));
+		echo $this -> Html -> script(array('jquery', 'dropdown'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<div id="container">
 		<!--<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>-->
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-inverse" role="navigation">
 	    	<ul class="nav navbar-nav ">
-<!--			<li class="dropdown">
+	    		<li class="dropdown">
     				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
       					Impresora <span class="caret"></span>
     				</a>
@@ -81,43 +81,14 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		   				<li><?php echo $this->Html->link('Estado', array('controller'=>'estados', 'action'=>'index'))?></li>
     				</ul>
 				</li>
-
 				<li>
 					<?php echo $this->Html->link('Usuario', array('controller'=>'users', 'action'=>'index'));?>
 				</li>
--->
-	  			
-    	   	</ul>
-    	   	<ul class="nav navbar-nav navbar-right">
-    	   		<li><a href="/users/login"><i class="fa fa-user"></i> Login</a> </li>
-				<li><?php echo $this->Html->link('Ingles', array('#'));?></li>
-				<li><?php echo $this->Html->link('Español', array('#'));?></li>     	   		
-    	   	</ul>
-		</nav>
-		<div class="row">
-			<div class="col-md-8">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-						
-					<img src="../img/tonosGraficos.png" class="img-responsive">
-					</div>
-				</div>
-			</div>
-  			<div class="col-md-4">
-  				<div class="row">
-  					<br>
-  					<div class="col-md-4">
-						<a href="/productos/index"><img src="../img/producto.png" class="img-responsive"></a>  					
-					</div>
-  					<div class="col-md-4">
-						<a href="#"><img src="../img/soporte.png" class="img-responsive"></a>
-  					</div>
-  					<div class="col-md-4">
-						<a href="#"><img src="../img/contacto.png" class="img-responsive"></a>
-  					</div>
-  				</div>
-  			</div>
-		</div>
+		   	</ul>
+		   	<ul class="nav navbar-nav navbar-right">
+      			<li><?php echo $this->Html->link('Salir', '/users/logout');?></li>
+    		</ul>
+		</nav>	
 
 		<div id="content" class="container">
 <!--			<div class="col-md-2">
@@ -153,6 +124,5 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	if (class_exists('JsHelper') && method_exists($this->Js, 'writeBuffer')) echo $this->Js->writeBuffer();
 	// Writes cached scripts
 	?>
-	
 </body>
 </html>

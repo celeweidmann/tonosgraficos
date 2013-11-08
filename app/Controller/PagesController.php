@@ -37,6 +37,12 @@ class PagesController extends AppController {
  * @var array
  */
 	public $uses = array();
+	
+	public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow();
+		$this->layout='default';
+    }
 
 /**
  * Displays a view
@@ -75,4 +81,5 @@ class PagesController extends AppController {
 			throw new NotFoundException();
 		}
 	}
+	
 }

@@ -32,12 +32,28 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+		
 	
 	public $components = array(
         'Session',
         'Auth' => array(
-            'loginRedirect' => array('controller' => 'pedidos', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+         	'loginAction' => array(
+            	'admin' => FALSE,
+                'controller' => 'users',
+                'action' => 'login'
+            ),
+            'loginRedirect' => array(
+            	'admin' => true,
+            	'controller' => 'pedidos', 
+            	'action' => 'admin_index', 
+            	
+			),
+            'logoutRedirect' => array(
+            	'admin' => FALSE,
+            	'controller' => 'pages', 
+            	'action' => 'inicio'
+            	
+			),
 			'authorize' => array('Controller')
         )
     );
@@ -48,10 +64,33 @@ class AppController extends Controller {
         	return true;
     	}
     	// Default deny
-    	return false;
+    	return true;
 	}
-
+	
+	public function beforeFilter() {
+    	if ((isset($this->params['prefix']) && ($this->params['prefix'] == 'admin'))) {
+	        $this->layout = 'admin';
+    	} else {
+    		$this->layout = 'cliente';
+    	}
+	}
+	
+	function isAdmin(){
+		$this -> loadModel('User');
+		$role = $this -> User -> findById($this -> Session -> read('Auth.User.role'));
+        if($role != 'admin') {
+        	$this->layout = 'cliente';
+			return $this->redirect('/users/logout');
+		}
+	}
+	
+/*
     public function beforeFilter() {
+		if (AuthComponent::user('role') === 'admin') {
+        	$this -> layout = 'admin';
+		}
+        $this -> layout = 'default';
         $this->Auth->allow('index', 'view');
     }
+ */
 }

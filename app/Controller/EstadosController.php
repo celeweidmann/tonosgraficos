@@ -20,7 +20,7 @@ class EstadosController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Estado->recursive = 0;
 		$this->set('estados', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class EstadosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Estado->exists($id)) {
 			throw new NotFoundException(__('Invalid estado'));
 		}
@@ -45,7 +45,7 @@ class EstadosController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Estado->create();
 			if ($this->Estado->save($this->request->data)) {
@@ -64,7 +64,7 @@ class EstadosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Estado->exists($id)) {
 			throw new NotFoundException(__('Invalid estado'));
 		}
@@ -88,7 +88,7 @@ class EstadosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Estado->id = $id;
 		if (!$this->Estado->exists()) {
 			throw new NotFoundException(__('Invalid estado'));

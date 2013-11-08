@@ -1,14 +1,14 @@
 <div class="row">
-	<!--<div class="col-md-2 col-md-offset-1">
+	<div class="col-md-2 col-md-offset-1">
 		<div class="actions">
 			<h3><?php echo __('Actions'); ?></h3>
 			<ul class="list-unstyled">
-				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('Listado Pedido'), array('action' => 'index')); ?></li>
-				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('Agregar Pedido'), array('action' => 'agregar')); ?></li>
+				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('New Pedido'), array('action' => 'add')); ?></li>
+			<!--	<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('Agregar Pedido'), array('action' => 'agregar')); ?></li>-->
 			</ul>
 		</div>
-	</div>-->
-	<div class="col-md-12">
+	</div>
+	<div class="col-md-8">
 		<div class="row pedidos index">
 			<h2><?php echo __('Pedidos'); ?></h2>
 			<table class="table table-striped" cellpadding="0" cellspacing="0">
@@ -35,8 +35,8 @@
 				<td><?php echo h($pedido['Pedido']['user_id']); ?>&nbsp;</td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('View'), array('action' => 'view', $pedido['Pedido']['id'])); ?>
-				<!--	<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $pedido['Pedido']['id'])); ?>
-					<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $pedido['Pedido']['id']), null, __('Are you sure you want to delete # %s?', $pedido['Pedido']['id'])); ?>-->
+					<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $pedido['Pedido']['id'])); ?>
+					<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $pedido['Pedido']['id']), null, __('Are you sure you want to delete # %s?', $pedido['Pedido']['id'])); ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>

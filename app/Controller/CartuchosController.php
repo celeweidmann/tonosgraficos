@@ -15,12 +15,16 @@ class CartuchosController extends AppController {
  */
 	public $components = array('Paginator');
 
+	function beforeFilter() {
+    	parent::beforeFilter();
+	}
+
 /**
  * index method
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Cartucho->recursive = 0;
 		$this->set('cartuchos', $this->Paginator->paginate());
 	}
@@ -32,7 +36,7 @@ class CartuchosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Cartucho->exists($id)) {
 			throw new NotFoundException(__('Invalid cartucho'));
 		}
@@ -45,7 +49,7 @@ class CartuchosController extends AppController {
  *
  * @return void
  */
-	public function add() {
+/*	public function admin_add() {
 		$modelos = $this->Cartucho->Modelo->find('list');
 		$this->set(compact('modelos'));
 		if ($this->request->is('post')) {
@@ -58,7 +62,22 @@ class CartuchosController extends AppController {
 			}
 		}
 	}
-
+*/
+	public function admin_add() {
+		if($this->isAdmin()){
+			$modelos = $this->Cartucho->Modelo->find('list');
+			$this->set(compact('modelos'));
+			if ($this->request->is('post')) {
+				$this->Cartucho->create();
+				if ($this->Cartucho->save($this->request->data)) {
+					$this->Session->setFlash(__('The cartucho has been saved.'));
+					return $this->redirect(array('action' => 'index'));
+				} else {
+					$this->Session->setFlash(__('The cartucho could not be saved. Please, try again.'));
+				}
+			}
+		}
+	}
 /**
  * edit method
  *
@@ -66,7 +85,7 @@ class CartuchosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		$modelos = $this->Cartucho->Modelo->find('list');
 		$this->set(compact('modelos'));
 		if (!$this->Cartucho->exists($id)) {
@@ -92,7 +111,7 @@ class CartuchosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Cartucho->id = $id;
 		if (!$this->Cartucho->exists()) {
 			throw new NotFoundException(__('Invalid cartucho'));
