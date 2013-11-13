@@ -1,14 +1,119 @@
+@import "compass/css3"
+@import fonts
+
 $azul-claro: #B3CAD6
 $azul-oscuro: #525872
+$azul-footer: #6795AD
 $blanco: #FFFFFF
 
-.footer
-  background-color: $azul-claro
-  color: $blanco
-  padding:
-    top: 20px
-    bottom: 10px
+@include font-face("ratio", font-files("Rationale-Regular.otf"))
+
+body
+  margin-bottom: 50px
+
+#barra-superior
+  background-color: $blanco
+  margin-left: 0px
+
+#barra-superior-transparente
+  background-color: rgba(255, 255, 255, 0.95)
+  //background-color: $blanco
+  margin:
+    left: 15px
+    right: 15px
+
+.bloque-texto
+  background-color: rgba(255, 255, 255, 0.80)
+  padding: 15px
+  text-align: justify
+  min-height: 500px
+  margin-right: 1px
+  
+h3
+  text-align: justify
+  font:
+    family: "ratio"
+  color: $azul-oscuro 
+
+.titulo
+  padding-top: 8px
+
+.caja-transparente
+  margin-top: 10px
+  margin-bottom: 10px
+
+.fa
+  font-size: 24px
+
+.logo
+  padding-left: 10px
+
+.menu-acciones
+  padding-top: 80px
+  
+.menu-azul
+  color: $azul-footer
+  font:
+    family: "ratio"
+    size: 18px
+     
+.navbar
+  min-height: 40px
+  border-bottom-left-radius: 0px
+  border-bottom-right-radius: 0px
+  border-top-left-radius: 0px
+  border-top-right-radius: 0px
+  margin:
+    left: 15px
+    right: 15px
+    
+.navbar-inner
+  min-height: 40px
     
 .navbar-default
   background-color: $blanco
-  margin-bottom: 3px
+  margin-bottom: 0px
+  
+.navbar-nav > li > a
+  font-size: 12px
+  padding-bottom: 0px
+  padding-top: 10px
+
+#footer
+  color: $azul-claro
+  background: $azul-oscuro
+  padding-top: 10px
+  padding-bottom: 10px
+  bottom: 0
+  position: fixed
+
+#video_background
+  position: fixed 
+  bottom: 0px
+  right: 0px 
+  min-width: 100%
+  min-height: 100% 
+  width: auto
+  //width: 100%
+  height: auto 
+  z-index: -1000 
+  overflow: hidden
+  background-color: $blanco 
+
+#video_pattern 
+  background: $blanco 
+  position: fixed 
+  opacity: 0.8
+  left: 0px
+  top: 0px 
+  width: 100%  
+  height: 100% 
+  z-index: 1
+  
+
+#flashcontent
+  height: 100%
+  width: 100%
+  z-index: -9999
+  position: fixed
+  margin: 0 auto
