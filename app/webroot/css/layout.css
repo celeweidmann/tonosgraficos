@@ -1,13 +1,170 @@
-/* line 5, ../sass/layout.sass */
-.footer {
-  background-color: #b3cad6;
-  color: white;
-  padding-top: 20px;
-  padding-bottom: 10px;
+@font-face {
+  font-family: "isocpe";
+  src: url('/fonts/Isocpeur-Regular.ttf') format('truetype');
 }
 
-/* line 12, ../sass/layout.sass */
+@font-face {
+  font-family: "codeBold";
+  src: url('/fonts/CODE_Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "liberation";
+  src: url('/fonts/LiberationSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "greyscale";
+  src: url('/fonts/Greyscale_Basic_Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "ration";
+  src: url('/fonts/Rationale-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "ratio";
+  src: url('/fonts/Rationale-Regular.otf') format('opentype');
+}
+
+/* line 11, ../sass/layout.sass */
+body {
+  margin-bottom: 50px;
+}
+
+/* line 14, ../sass/layout.sass */
+#barra-superior {
+  background-color: white;
+  margin-left: 0px;
+}
+
+/* line 18, ../sass/layout.sass */
+#barra-superior-transparente {
+  background-color: rgba(255, 255, 255, 0.95);
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* line 25, ../sass/layout.sass */
+.bloque-texto {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  text-align: justify;
+  min-height: 500px;
+  margin-right: 1px;
+}
+
+/* line 32, ../sass/layout.sass */
+h3 {
+  text-align: justify;
+  font-family: "ratio";
+  color: #525872;
+}
+
+/* line 38, ../sass/layout.sass */
+.titulo {
+  padding-top: 8px;
+}
+
+/* line 41, ../sass/layout.sass */
+.caja-transparente {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 45, ../sass/layout.sass */
+.fa {
+  font-size: 24px;
+}
+
+/* line 48, ../sass/layout.sass */
+.logo {
+  padding-left: 10px;
+}
+
+/* line 51, ../sass/layout.sass */
+.menu-acciones {
+  padding-top: 80px;
+}
+
+/* line 54, ../sass/layout.sass */
+.menu-azul {
+  color: #6795ad;
+  font-family: "ratio";
+  font-size: 18px;
+}
+
+/* line 60, ../sass/layout.sass */
+.navbar {
+  min-height: 40px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* line 70, ../sass/layout.sass */
+.navbar-inner {
+  min-height: 40px;
+}
+
+/* line 73, ../sass/layout.sass */
 .navbar-default {
   background-color: white;
-  margin-bottom: 3px;
+  margin-bottom: 0px;
+}
+
+/* line 77, ../sass/layout.sass */
+.navbar-nav > li > a {
+  font-size: 12px;
+  padding-bottom: 0px;
+  padding-top: 10px;
+}
+
+/* line 82, ../sass/layout.sass */
+#footer {
+  color: #b3cad6;
+  background: #525872;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  bottom: 0;
+  position: fixed;
+}
+
+/* line 90, ../sass/layout.sass */
+#video_background {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden;
+  background-color: white;
+}
+
+/* line 103, ../sass/layout.sass */
+#video_pattern {
+  background: white;
+  position: fixed;
+  opacity: 0.8;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* line 114, ../sass/layout.sass */
+#flashcontent {
+  height: 100%;
+  width: 100%;
+  z-index: -9999;
+  position: fixed;
+  margin: 0 auto;
 }

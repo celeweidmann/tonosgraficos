@@ -20,20 +20,18 @@
 $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
 ?>
 <!DOCTYPE html>
+
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		Tonos Gráficos
-	</title>
+	<?php echo $this -> Html -> charset(); ?>
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>	Tonos Gráficos</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php
 		echo $this->Html->meta('icon');
 		
 		echo $this->Html->css('bootstrap');
 		echo $this->Html->css('layout');
-		
-	//	echo $this->Html->css('cake.generic');
-		
+
 		# Scripts
 		echo $this -> Html -> script(array('jquery', 'dropdown', 'bootstrap.min'));
 
@@ -42,108 +40,84 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->fetch('script');
 	?>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css" rel="stylesheet">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<!--[if lte IE 8]>
+	<style>
+		.row [class*="span"] { min-height: 20px; }
+	</style>
+	<![endif]-->
 </head>
 <body>
-	<div id="container">
-		<!--<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>-->
+	<div class="col-md-12">
 		<nav class="navbar navbar-default" role="navigation">
-	    	<ul class="nav navbar-nav ">
-<!--			<li class="dropdown">
-    				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      					Impresora <span class="caret"></span>
-    				</a>
-    				<ul class="dropdown-menu">
-      					<li><?php echo $this->Html->link('Marca', array('controller'=>'marcas', 'action'=>'index'))?></li>
-		   				<li><?php echo $this->Html->link('Modelo', array('controller'=>'modelos', 'action'=>'index'))?></li>
-    				</ul>
-				</li> 
-				<li class="dropdown">
-    				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      					Cartucho <span class="caret"></span>
-    				</a>
-    				<ul class="dropdown-menu">
-		   				<li><?php echo $this->Html->link('Cartucho', array('controller'=>'cartuchos', 'action'=>'index'))?></li>
-      					<li><?php echo $this->Html->link('Tinta', array('controller'=>'tintas', 'action'=>'index'))?></li>
-		   				<li><?php echo $this->Html->link('Recipiente', array('controller'=>'recipientes', 'action'=>'index'))?></li>
-    				</ul>
-				</li>
-				<li class="dropdown">
-    				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      					Pedido <span class="caret"></span>
-    				</a>
-    				<ul class="dropdown-menu">
-      					<li><?php echo $this->Html->link('Pedido', array('controller'=>'pedidos', 'action'=>'index'))?></li>
-		   				<li><?php echo $this->Html->link('Item', array('controller'=>'items', 'action'=>'index'))?></li>
-		   				<li><?php echo $this->Html->link('Producto', array('controller'=>'productos', 'action'=>'index'))?></li>
-		   				<li><?php echo $this->Html->link('Transporte', array('controller'=>'transportes', 'action'=>'index'))?></li>
-		   				<li><?php echo $this->Html->link('Estado', array('controller'=>'estados', 'action'=>'index'))?></li>
-    				</ul>
-				</li>
-
-				<li>
-					<?php echo $this->Html->link('Usuario', array('controller'=>'users', 'action'=>'index'));?>
-				</li>
--->
-	  			
-    	   	</ul>
     	   	<ul class="nav navbar-nav navbar-right">
-    	   		<li><a href="/users/login"><i class="fa fa-user"></i> Login</a> </li>
-				<li><?php echo $this->Html->link('Ingles', array('#'));?></li>
-				<li><?php echo $this->Html->link('Español', array('#'));?></li>     	   		
+    	   		<li><a class="menu-login" href="/users/login">[ ingresar ]</a> </li>
+			<!--	<li><?php echo $this->Html->link('Ingles', array('#'));?></li>
+				<li><?php echo $this->Html->link('Español', array('#'));?></li>-->     	   		
     	   	</ul>
 		</nav>
-		<div class="row">
-			<div class="col-md-8">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3">
-						
-					<img src="../img/tonosGraficos.png" class="img-responsive">
+		<div id="barra-superior-transparente">
+			<div class="row">
+			<div class="col-md-6">
+				<div class="row" id="barra-superior">
+					<div class="col-md-6" >			
+						<a href="/"><img src="../img/TonosGraficos_r.png" class="img logo" style="width: 580px; margin-bottom: -50px" ></a>
 					</div>
 				</div>
 			</div>
-  			<div class="col-md-4">
+  			<div class="col-md-6 menu-acciones">
   				<div class="row">
-  					<br>
-  					<div class="col-md-4">
-						<a href="/productos/index"><img src="../img/producto.png" class="img-responsive"></a>  					
+  					<div class="col-md-2 text-center">
+						<a href="/pages/inicio" class="menu-azul"><i class="fa fa-home "></i><br>INICIO</a>  					
 					</div>
-  					<div class="col-md-4">
-						<a href="#"><img src="../img/soporte.png" class="img-responsive"></a>
+  					<div class="col-md-2 text-center">
+						<a href="/pages/producto" class="menu-azul"><i class="fa fa-tint "></i><br>PRODUCTOS</a>  					
+					</div>
+  					<div class="col-md-3 text-center">
+  						<a href="/pages/soporte_tecnico" class="menu-azul"><i class="fa fa-gears"></i><br>SOPORTE TÉCNICO</a>
   					</div>
-  					<div class="col-md-4">
-						<a href="#"><img src="../img/contacto.png" class="img-responsive"></a>
+  					<div class="col-md-3 text-center">
+  						<a href="/pages/gracias" class="menu-azul"><i class="fa fa-users"></i><br>AGRADECIMIENTOS</a>
+  					</div>
+  					<div class="col-md-2 text-center">
+  						<a href="/pages/contacto" class="menu-azul"><i class="fa fa-envelope"></i><br>CONTACTO</a>
   					</div>
   				</div>
   			</div>
+  			</div>
 		</div>
-
-		<div id="content" class="container">
-<!--			<div class="col-md-2">
-				
-				
-			</div>
-			<div class="col-md-10">-->
+<!--
+		<video autoplay="autoplay" loop="loop" id="video_background" preload="auto" volume="50"/>
+  			<source src="/img/tintas4.ogv" type="video/ogg" />
+  			<source src="/img/tonos_2.mp4" type="video/mp4" />
+  			<object id="flashcontent" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="100%" height="100%">
+      			<param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+      			<param name="allowFullScreen" value="true" />
+      			<param name="scale" value="exactFit" />
+      			<param name="wmode" value="transparent" />
+      			<param name="loop" value="true" />
+      			<param name="play" value="true" />
+      			<param name="flashvars" value='config={"clip":{"url":"http://tonos.workspace.com/img/tintas2.flv","autoPlay":true,"autoBuffering":true,"menu":false}}' />
+   			</object>
+		</video/>
+-->
+		<div id="content" class="container caja-transparente" style="z-index:200px; max-width:none">
 				
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
-			<!--</div>-->
+
 		</div>
-		<div class="footer" id="footer">
+	</div>
+	<div id="footer" class="col-md-12">
+		<div class="container">	
 			<div class="text-center">
 				Esperanza - Santa Fe - Argentina
 			</div>
-			<!--
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>-->
 		</div>
 	</div>
+		
 	<?php echo $this->element('sql_dump'); ?>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 	<!-- scripts_for_layout -->
@@ -154,5 +128,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	// Writes cached scripts
 	?>
 	
+	<!-- jplayer-->
+	<?php
+		echo $this -> Html -> script('vendor/jplayer/jquery.jplayer.min');
+	?>
+	<script type="text/javascript" src="/js/vendor/html5shiv.js"></script>
+	<script type="text/javascript" src="/js/vendor/respond.min.js"></script>
+
+	<!-- -->
 </body>
 </html>
