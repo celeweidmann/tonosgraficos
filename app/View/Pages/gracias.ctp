@@ -73,7 +73,7 @@
   					</a>
   					<div class="media-body">
     					<h4 class="media-heading">Sepyme</h4>
-    					Secretaría PyMEyDR - Ministeria de Industria
+    					Secretaría PyMEyDR - Ministerio de Industria
   					</div>
 				</div>
 				<div class="media">
