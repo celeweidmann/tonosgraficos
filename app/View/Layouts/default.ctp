@@ -62,7 +62,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			<div class="col-md-6">
 				<div class="row" id="barra-superior">
 					<div class="col-md-6" >			
-						<a href="/"><img src="../img/TonosGraficos_r.png" class="img logo" style="width: 580px; margin-bottom: -50px" ></a>
+						<a href="/"><img src="../img/Tonos_Graficos_R_chico.png" class="img logo" style="width: 580px; margin-bottom: -50px" ></a>
 					</div>
 				</div>
 			</div>
