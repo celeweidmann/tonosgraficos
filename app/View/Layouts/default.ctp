@@ -75,7 +75,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<div id="barra-superior-transparente">
 			<div class="row">
 			<div class="col-lg-6 col-md-5">
-				<div class="row" id="barra-superior">
+				<!--<div class="row" id="barra-superior">-->
+				<div class="row">
 					<div class="col-md-12 visible-md visible-lg" >			
 						<a href="/"><img src="../img/tonos_graficos_recortado.png" class="img logo img-responsive" style="width: 580px; margin-bottom: -50px" ></a>
 					</div>
