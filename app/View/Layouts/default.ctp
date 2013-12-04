@@ -51,7 +51,22 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div class="col-md-12">
 		<nav class="navbar navbar-default" role="navigation">
-    	   	<ul class="nav navbar-nav navbar-right">
+    	   	<ul class="nav navbar-nav nav-pills navbar-right menu-icono">
+    	   		<li class="visible-sm visible-xs">
+    	   			<a href="/pages/inicio" class="menu-azul"><i class="fa fa-home "></i></a>
+    	   		</li>
+    	   		<li class="visible-sm visible-xs">
+    	   			<a href="/pages/producto" class="menu-azul"><i class="fa fa-tint "></i></a> 
+    	   		</li>
+    	   		<li class="visible-sm visible-xs">
+    	   			<a href="/pages/soporte_tecnico" class="menu-azul"><i class="fa fa-gears"></i></a>
+    	   		</li>
+    	   		<li class="visible-sm visible-xs">
+    	   			<a href="/pages/gracias" class="menu-azul"><i class="fa fa-users"></i></a>
+    	   		</li>
+    	   		<li class="visible-sm visible-xs">
+    	   			<a href="/pages/contacto" class="menu-azul"><i class="fa fa-envelope"></i></a>
+    	   		</li>
     	   		<li><a class="menu-login" href="/users/login">[ ingresar ]</a> </li>
 			<!--	<li><?php echo $this->Html->link('Ingles', array('#'));?></li>
 				<li><?php echo $this->Html->link('Español', array('#'));?></li>-->     	   		
@@ -59,14 +74,36 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		</nav>
 		<div id="barra-superior-transparente">
 			<div class="row">
-			<div class="col-md-6">
+			<div class="col-lg-6 col-md-5">
 				<div class="row" id="barra-superior">
-					<div class="col-md-6" >			
-						<a href="/"><img src="../img/Tonos_Graficos_R_chico.png" class="img logo" style="width: 580px; margin-bottom: -50px" ></a>
+					<div class="col-md-12 visible-md visible-lg" >			
+						<a href="/"><img src="../img/tonos_graficos_recortado.png" class="img logo img-responsive" style="width: 580px; margin-bottom: -50px" ></a>
+					</div>
+					<div class="col-md-12 visible-sm visible-xs" >			
+						<a href="/"><img src="../img/tonos_graficos_recortado.png" class="img logo img-responsive" style="width: 350px; margin-bottom: 0px" ></a>
 					</div>
 				</div>
 			</div>
-  			<div class="col-md-6 menu-acciones">
+  			<div class="col-lg-6 col-md-7 menu-acciones visible-lg">
+  				<div class="row">
+  					<div class="col-md-2 text-center">
+						<a href="/pages/inicio" class="menu-azul"><i class="fa fa-home "></i><br>INICIO</a>  					
+					</div>
+  					<div class="col-md-2 text-center">
+						<a href="/pages/producto" class="menu-azul"><i class="fa fa-tint "></i><br>PRODUCTOS</a>  					
+					</div>
+  					<div class="col-md-3 text-center">
+  						<a href="/pages/soporte_tecnico" class="menu-azul"><i class="fa fa-gears"></i><br>SOPORTE TÉCNICO</a>
+  					</div>
+  					<div class="col-md-3 text-center">
+  						<a href="/pages/gracias" class="menu-azul"><i class="fa fa-users"></i><br>AGRADECIMIENTOS</a>
+  					</div>
+  					<div class="col-md-2 text-center">
+  						<a href="/pages/contacto" class="menu-azul"><i class="fa fa-envelope"></i><br>CONTACTO</a>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="col-md-6 menu-acciones-md visible-md">
   				<div class="row">
   					<div class="col-md-2 text-center">
 						<a href="/pages/inicio" class="menu-azul"><i class="fa fa-home "></i><br>INICIO</a>  					
@@ -87,21 +124,6 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   			</div>
   			</div>
 		</div>
-<!--
-		<video autoplay="autoplay" loop="loop" id="video_background" preload="auto" volume="50"/>
-  			<source src="/img/tintas4.ogv" type="video/ogg" />
-  			<source src="/img/tonos_2.mp4" type="video/mp4" />
-  			<object id="flashcontent" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="100%" height="100%">
-      			<param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
-      			<param name="allowFullScreen" value="true" />
-      			<param name="scale" value="exactFit" />
-      			<param name="wmode" value="transparent" />
-      			<param name="loop" value="true" />
-      			<param name="play" value="true" />
-      			<param name="flashvars" value='config={"clip":{"url":"http://tonos.workspace.com/img/tintas2.flv","autoPlay":true,"autoBuffering":true,"menu":false}}' />
-   			</object>
-		</video/>
--->
 		<div id="content" class="container caja-transparente" style="z-index:200px; max-width:none">
 				
 			<?php echo $this->Session->flash(); ?>
