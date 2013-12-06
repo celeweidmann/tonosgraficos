@@ -53,19 +53,19 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<nav class="navbar navbar-default" role="navigation">
     	   	<ul class="nav navbar-nav nav-pills navbar-right menu-icono">
     	   		<li class="visible-sm visible-xs">
-    	   			<a href="/pages/inicio" class="menu-azul"><i class="fa fa-home "></i></a>
+    	   			<a href="/pages/inicio" class="menu-azul-peque"><i class="fa fa-home "></i></a>
     	   		</li>
     	   		<li class="visible-sm visible-xs">
-    	   			<a href="/pages/producto" class="menu-azul"><i class="fa fa-tint "></i></a> 
+    	   			<a href="/pages/producto" class="menu-azul-peque"><i class="fa fa-tint "></i></a> 
     	   		</li>
     	   		<li class="visible-sm visible-xs">
-    	   			<a href="/pages/soporte_tecnico" class="menu-azul"><i class="fa fa-gears"></i></a>
+    	   			<a href="/pages/soporte_tecnico" class="menu-azul-peque"><i class="fa fa-gears"></i></a>
     	   		</li>
     	   		<li class="visible-sm visible-xs">
-    	   			<a href="/pages/gracias" class="menu-azul"><i class="fa fa-users"></i></a>
+    	   			<a href="/pages/gracias" class="menu-azul-peque"><i class="fa fa-users"></i></a>
     	   		</li>
     	   		<li class="visible-sm visible-xs">
-    	   			<a href="/pages/contacto" class="menu-azul"><i class="fa fa-envelope"></i></a>
+    	   			<a href="/pages/contacto" class="menu-azul-peque"><i class="fa fa-envelope"></i></a>
     	   		</li>
     	   		<li><a class="menu-login" href="/users/login">[ ingresar ]</a> </li>
 			<!--	<li><?php echo $this->Html->link('Ingles', array('#'));?></li>

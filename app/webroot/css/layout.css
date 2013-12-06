@@ -105,11 +105,19 @@ h3 {
 }
 
 /* line 67, ../sass/layout.sass */
+.menu-azul-peque {
+  color: #6795ad !important;
+  font-family: "ratio";
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* line 74, ../sass/layout.sass */
 .menu-icono {
   margin-left: 0px;
 }
 
-/* line 70, ../sass/layout.sass */
+/* line 77, ../sass/layout.sass */
 .navbar {
   min-height: 40px;
   border-bottom-left-radius: 0px;
@@ -120,31 +128,24 @@ h3 {
   margin-right: 15px;
 }
 
-/* line 80, ../sass/layout.sass */
+/* line 87, ../sass/layout.sass */
 .navbar-inner {
   min-height: 40px;
 }
 
-/* line 83, ../sass/layout.sass */
+/* line 90, ../sass/layout.sass */
 .navbar-default {
   background-color: white;
   margin-bottom: 0px;
 }
 
-/* line 87, ../sass/layout.sass */
+/* line 94, ../sass/layout.sass */
 .nav > li > a {
   padding-left: 8px;
   padding-right: 8px;
 }
 
-/* line 91, ../sass/layout.sass */
-.navbar-nav > li > a {
-  font-size: 12px;
-  padding-bottom: 0px;
-  padding-top: 10px;
-}
-
-/* line 96, ../sass/layout.sass */
+/* line 98, ../sass/layout.sass */
 #footer {
   background: #525872;
   bottom: 0;
@@ -155,7 +156,7 @@ h3 {
   width: 100%;
 }
 
-/* line 105, ../sass/layout.sass */
+/* line 107, ../sass/layout.sass */
 #video_background {
   position: fixed;
   bottom: 0px;
@@ -169,7 +170,7 @@ h3 {
   background-color: white;
 }
 
-/* line 118, ../sass/layout.sass */
+/* line 120, ../sass/layout.sass */
 #video_pattern {
   background: white;
   position: fixed;
@@ -181,7 +182,7 @@ h3 {
   z-index: 1;
 }
 
-/* line 129, ../sass/layout.sass */
+/* line 131, ../sass/layout.sass */
 #flashcontent {
   height: 100%;
   width: 100%;

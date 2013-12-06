@@ -1,6 +1,6 @@
 <!-- VIDEO DE FONDO -->
 <video id="video_background" preload="auto" poster="/img/fondo-blanco.png" volume="0"  autoplay="autoplay" loop="loop">
-	<source src="/img/videos/azul5_1.ogv" type="video/ogg" />
+	<source src="/img/videos/azul5_nuevo.ogv" type="video/ogg" />
   	<source src="/img/videos/tonos_2.mp4" type="video/mp4" />
 </video>
 <div class="row">
