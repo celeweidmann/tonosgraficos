@@ -43,6 +43,7 @@
 	Router::connect('/admin', array('controller' => 'items', 'action' => 'add, edit, delete', 'admin' => true));
 	Router::connect('/admin', array('controller' => 'marcas', 'action' => 'add, edit, delete', 'admin' => true));
 	Router::connect('/admin', array('controller' => 'modelos', 'action' => 'add, edit, delete', 'admin' => true));
+	Router::connect('/admin', array('controller' => 'noticias', 'action' => 'add, edit, delete', 'admin' => true));
 	Router::connect('/admin', array('controller' => 'pedidos', 'action' => 'add, edit, delete', 'admin' => true));
 	Router::connect('/admin', array('controller' => 'productos', 'action' => 'add, edit, delete', 'admin' => true));
 	Router::connect('/admin', array('controller' => 'recipientes', 'action' => 'add, edit, delete', 'admin' => true));
