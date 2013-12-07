@@ -1,5 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('Folder', 'Utility');
+App::uses('File', 'Utility');
 /**
  * Noticias Controller
  *
@@ -14,6 +16,12 @@ class NoticiasController extends AppController {
  * @var array
  */
 	public $components = array('Paginator');
+	
+	
+	public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('inicio');
+    }
 
 /**
  * index method
@@ -46,8 +54,27 @@ class NoticiasController extends AppController {
  * @return void
  */
 	public function admin_add() {
-		if ($this->request->is('post')) {
-			$this->Noticia->create();
+		if ($this -> request -> is('post')) {
+			$this -> Noticia -> create();
+			$this -> Noticia -> set($this -> request -> data);
+			
+			# Se verifica y se setea la imagen
+			
+			if (isset($this -> request -> data['Noticia']['archivo']['name']) && ($this -> request -> data['Noticia']['archivo']['name'] != '')) {
+				$nombreImagen = $this -> request -> data['Noticia']['archivo']['name'];
+				$uploadDir = WWW_ROOT . 'img/noticias/';
+				$uploadFile = $uploadDir . $nombreImagen;
+				if (!move_uploaded_file($this -> request -> data['Noticia']['archivo']['tmp_name'], $uploadFile)) {
+					$this -> Session -> setFlash(__('The archivo could not be saved. Please, verify the file.'));
+					return $this -> redirect(array('action' => 'admin_add', $this -> request -> data));
+				}
+				
+				$this->request->data['Noticia']['archivo'] = $nombreImagen;
+				$this->set('archivo', $nombreImagen);
+			} else {
+				$this->set('archivo', '');
+			}
+			
 			if ($this->Noticia->save($this->request->data)) {
 				$this->Session->setFlash(__('The noticia has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -100,4 +127,13 @@ class NoticiasController extends AppController {
 			$this->Session->setFlash(__('The noticia could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+
+	public function inicio(){
+		$this->layout = 'default';
+		$noticias = $this->Noticia->find('all', array(
+										'conditions' => array(
+											'Noticia.publicado =' => true)));
+		$this->set('noticias', $noticias);
+	}
+}

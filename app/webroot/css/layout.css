@@ -77,34 +77,73 @@ h3 {
 }
 
 /* line 48, ../sass/layout.sass */
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  height: 250px;
+}
+
+/* line 52, ../sass/layout.sass */
+.carousel-contenedor {
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 250px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 5px;
+}
+
+/* line 60, ../sass/layout.sass */
+.carousel-noticia {
+  height: 250px;
+}
+
+/* line 63, ../sass/layout.sass */
+.carousel-texto {
+  color: #525872;
+}
+
+/* line 66, ../sass/layout.sass */
+.carousel-texto > h2 {
+  font-family: "ratio";
+}
+
+/* line 69, ../sass/layout.sass */
 .fa {
   font-size: 24px;
 }
 
-/* line 51, ../sass/layout.sass */
+/* line 72, ../sass/layout.sass */
+.fa-carousel {
+  display: inline-block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+}
+
+/* line 79, ../sass/layout.sass */
 .logo {
   padding-left: 10px;
   margin-bottom: -50;
 }
 
-/* line 55, ../sass/layout.sass */
+/* line 83, ../sass/layout.sass */
 .menu-acciones {
   padding-top: 80px;
 }
 
-/* line 58, ../sass/layout.sass */
+/* line 86, ../sass/layout.sass */
 .menu-acciones-md {
   padding-top: 40px;
 }
 
-/* line 61, ../sass/layout.sass */
+/* line 89, ../sass/layout.sass */
 .menu-azul {
   color: #6795ad !important;
   font-family: "ratio";
   font-size: 18px;
 }
 
-/* line 67, ../sass/layout.sass */
+/* line 95, ../sass/layout.sass */
 .menu-azul-peque {
   color: #6795ad !important;
   font-family: "ratio";
@@ -112,12 +151,12 @@ h3 {
   padding-right: 10px;
 }
 
-/* line 74, ../sass/layout.sass */
+/* line 102, ../sass/layout.sass */
 .menu-icono {
   margin-left: 0px;
 }
 
-/* line 77, ../sass/layout.sass */
+/* line 105, ../sass/layout.sass */
 .navbar {
   min-height: 40px;
   border-bottom-left-radius: 0px;
@@ -128,24 +167,24 @@ h3 {
   margin-right: 15px;
 }
 
-/* line 87, ../sass/layout.sass */
+/* line 115, ../sass/layout.sass */
 .navbar-inner {
   min-height: 40px;
 }
 
-/* line 90, ../sass/layout.sass */
+/* line 118, ../sass/layout.sass */
 .navbar-default {
   background-color: white;
   margin-bottom: 0px;
 }
 
-/* line 94, ../sass/layout.sass */
+/* line 122, ../sass/layout.sass */
 .nav > li > a {
   padding-left: 8px;
   padding-right: 8px;
 }
 
-/* line 98, ../sass/layout.sass */
+/* line 126, ../sass/layout.sass */
 #footer {
   background: #525872;
   bottom: 0;
@@ -156,7 +195,7 @@ h3 {
   width: 100%;
 }
 
-/* line 107, ../sass/layout.sass */
+/* line 135, ../sass/layout.sass */
 #video_background {
   position: fixed;
   bottom: 0px;
@@ -170,7 +209,7 @@ h3 {
   background-color: white;
 }
 
-/* line 120, ../sass/layout.sass */
+/* line 148, ../sass/layout.sass */
 #video_pattern {
   background: white;
   position: fixed;
@@ -182,7 +221,7 @@ h3 {
   z-index: 1;
 }
 
-/* line 131, ../sass/layout.sass */
+/* line 159, ../sass/layout.sass */
 #flashcontent {
   height: 100%;
   width: 100%;

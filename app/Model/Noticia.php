@@ -12,6 +12,9 @@ class Noticia extends AppModel {
  *
  * @var array
  */
+ 
+ 	public $useTable = 'noticias';
+ 
 	public $validate = array(
 		'title' => array(
 			'notempty' => array(
@@ -23,6 +26,20 @@ class Noticia extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'archivo' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				'message' => 'Debe seleccionar un archivo',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+	 	'link' => array(
+        	'rule' => 'url',
+        	'message' => 'Debe ser una url válida.',
+    	)
 	);
 
 }
