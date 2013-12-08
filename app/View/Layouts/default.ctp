@@ -33,7 +33,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->css('layout');
 
 		# Scripts
-		echo $this -> Html -> script(array('jquery', 'dropdown', 'bootstrap.min'));
+		echo $this -> Html -> script(array('jquery', 'dropdown', 'vendor/carousel.js','bootstrap.min'));
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');

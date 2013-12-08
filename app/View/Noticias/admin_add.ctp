@@ -18,6 +18,7 @@
 					echo $this->Form->input('description');
 					echo $this->Form->input('link');
 					echo $this->Form->input('archivo', array('type'=>'file'));
+					echo $this->Form->input('publicado');
 				?>
 			</fieldset>
 			<?php echo $this->Form->end(__('Submit')); ?>

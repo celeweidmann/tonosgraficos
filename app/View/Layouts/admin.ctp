@@ -84,6 +84,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<li>
 					<?php echo $this->Html->link('Usuario', array('controller'=>'users', 'action'=>'index'));?>
 				</li>
+				<li>
+					<?php echo $this->Html->link('Noticias', array('controller'=>'noticias', 'action'=>'index'));?>
+				</li>
 		   	</ul>
 		   	<ul class="nav navbar-nav navbar-right">
       			<li><?php echo $this->Html->link('Salir', '/users/logout');?></li>

@@ -5,6 +5,40 @@
 </video>
 <div class="row">
 	<div class="col-md-8 col-md-offset-4">
+		<div class="row carousel-contenedor">
+			<div id="carousel-tg" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+			  	<ol class="carousel-indicators">
+			    	<li data-target="#carousel-tg" data-slide-to="0" class="active"></li>
+			    	<li data-target="#carousel-tg" data-slide-to="1"></li>
+			    	<li data-target="#carousel-tg" data-slide-to="2"></li>
+			  	</ol>
+
+  				<!-- Wrapper for slides -->
+  				<div class="carousel-inner">
+			    	<div class="item active">
+			    		<div class="row">
+			    			<div class="col-md-6 col-sm-6">
+					      		<img src="/img/noticias/plisowyj1.jpg" class="carousel-noticia img-thumbnail img-responsive pull-right" alt="...">
+				    		</div>
+				    		<div class="col-md-6 col-sm-6 carousel-texto">
+				    			<h2>CAROUSEL</h2>
+				    			<p>Este es el texto de la noticia</p>
+				    			 <i class="fa fa-link"></i>
+				    		</div>
+			    		</div>
+			    	</div>
+  				</div>
+
+  				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-tg" data-slide="prev">
+					<i class="fa-carousel fa fa-chevron-left"></i>
+				</a>
+				<a class="right carousel-control" href="#carousel-tg" data-slide="next">
+					<i class="fa-carousel fa fa-chevron-right"></i>
+				</a>
+			</div>
+		</div>
 		<div class="row bloque-texto">
 			<h3>Incubadora de Proyectos</h3>
 			<p>
