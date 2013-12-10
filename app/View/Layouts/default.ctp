@@ -65,7 +65,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     	   			<a href="/pages/gracias" class="menu-azul-peque"><i class="fa fa-users"></i></a>
     	   		</li>
     	   		<li class="visible-sm visible-xs">
-    	   			<a href="/pages/contacto" class="menu-azul-peque"><i class="fa fa-envelope"></i></a>
+    	   			<a href="/contactos/index" class="menu-azul-peque"><i class="fa fa-envelope"></i></a>
     	   		</li>
     	   		<li><a class="menu-login" href="/users/login">[ ingresar ]</a> </li>
 			<!--	<li><?php echo $this->Html->link('Ingles', array('#'));?></li>
@@ -78,7 +78,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<!--<div class="row" id="barra-superior">-->
 				<div class="row">
 					<div class="col-md-12 visible-md visible-lg" >			
-						<a href="/"><img src="../img/tonos_graficos_recortado.png" class="img logo img-responsive" style="width: 580px; margin-bottom: -50px" ></a>
+						<a href="/"><img src="/img/tonos_graficos_recortado.png" class="img logo img-responsive" style="width: 580px; margin-bottom: -50px" ></a>
 					</div>
 					<div class="col-md-12 visible-sm visible-xs" >			
 						<a href="/"><img src="../img/tonos_graficos_recortado.png" class="img logo img-responsive" style="width: 350px; margin-bottom: 0px" ></a>
@@ -100,7 +100,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   						<a href="/pages/gracias" class="menu-azul"><i class="fa fa-users"></i><br>AGRADECIMIENTOS</a>
   					</div>
   					<div class="col-md-2 text-center">
-  						<a href="/pages/contacto" class="menu-azul"><i class="fa fa-envelope"></i><br>CONTACTO</a>
+  						<a href="/contactos/index" class="menu-azul"><i class="fa fa-envelope"></i><br>CONTACTO</a>
   					</div>
   				</div>
   			</div>
@@ -119,7 +119,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   						<a href="/pages/gracias" class="menu-azul"><i class="fa fa-users"></i><br>AGRADECIMIENTOS</a>
   					</div>
   					<div class="col-md-2 text-center">
-  						<a href="/pages/contacto" class="menu-azul"><i class="fa fa-envelope"></i><br>CONTACTO</a>
+  						<a href="/contactos/index" class="menu-azul"><i class="fa fa-envelope"></i><br>CONTACTO</a>
   					</div>
   				</div>
   			</div>
