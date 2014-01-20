@@ -12,8 +12,12 @@
 				Tonos Gráficos garantiza que sus productos mantienen una calidad constante con información 
 				técnica fehaciente, confiable y trazable. 
 				<br>
-				Ante cualquier duda sobre compatibilidad de productos, etc. envíenos un email a: 
-				<b>consultatecnica@tonosgraficos.com</b> 
+				Ante cualquier duda sobre compatibilidad de productos, reclamos, sugerencias comunicate con nosotros
+				a traves de nuestro centro de soporte técnico</br>
+				<b>consultatecnica@tonosgraficos.com</b></br>
+				
+				<!--<a href="http://192.168.10.121/osticket16" class="btn btn-default">Centro de Soporte de Tonos Gráficos</a>-->
+				<a href="http://osticket.colectivolibre.com.ar/" class="btn btn-default" target="_blank">Centro de Soporte de Tonos Gráficos</a> 
 			</p>
 		</div>
 	</div>
