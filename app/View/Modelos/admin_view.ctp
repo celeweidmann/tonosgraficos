@@ -1,7 +1,7 @@
 <div class="row">
-	<div class="col-md-2 col-md-offset-1">
+	<div class="col-md-2">
 		<div class="actions">
-			<h3><?php echo __('Actions'); ?></h3>
+			<h3><?php echo __('Acciones'); ?></h3>
 			<ul class="list-unstyled">
 				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('Edit Modelo'), array('action' => 'edit', $modelo['Modelo']['id'])); ?> </li>
 				<li class="btn btn-default btn-block"><?php echo $this->Form->postLink(__('Delete Modelo'), array('action' => 'delete', $modelo['Modelo']['id']), null, __('Are you sure you want to delete # %s?', $modelo['Modelo']['id'])); ?> </li>
@@ -10,7 +10,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-10">
 		<div class="modelos view">
 			<h2><?php echo __('Modelo'); ?></h2>
 			<dl>

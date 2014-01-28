@@ -1,15 +1,15 @@
 <div class="row">
-	<div class="col-md-2 col-md-offset-1">
+	<div class="col-md-2">
 		<div class="actions">
-			<h3><?php echo __('Actions'); ?></h3>
+			<h3><?php echo __('Acciones'); ?></h3>
 			<ul class="list-unstyled">
-				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('New Transporte'), array('action' => 'add')); ?></li>
+				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('Nuevo Transporte'), array('action' => 'add')); ?></li>
 			</ul>
 		</div>
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-10">
 		<div class="transportes index">
-			<h2><?php echo __('Transportes'); ?></h2>
+			<h3><?php echo __('Transportes'); ?></h3>
 			<table class="table table-striped" cellpadding="0" cellspacing="0">
 				<tr>
 					<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -17,7 +17,7 @@
 					<th><?php echo $this->Paginator->sort('address'); ?></th>
 					<th><?php echo $this->Paginator->sort('telefono'); ?></th>
 					<th><?php echo $this->Paginator->sort('email'); ?></th>
-					<th class="actions"><?php echo __('Actions'); ?></th>
+					<th class="actions"><?php echo __('Acciones'); ?></th>
 				</tr>
 				<?php foreach ($transportes as $transporte): ?>
 				<tr>
@@ -27,9 +27,9 @@
 					<td><?php echo h($transporte['Transporte']['telefono']); ?>&nbsp;</td>
 					<td><?php echo h($transporte['Transporte']['email']); ?>&nbsp;</td>
 					<td class="actions">
-						<?php echo $this->Html->link(__('View'), array('action' => 'view', $transporte['Transporte']['id'])); ?>
-						<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $transporte['Transporte']['id'])); ?>
-						<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $transporte['Transporte']['id']), null, __('Are you sure you want to delete # %s?', $transporte['Transporte']['id'])); ?>
+						<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $transporte['Transporte']['id'])); ?>
+						<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $transporte['Transporte']['id'])); ?>
+						<?php echo $this->Form->postLink(__('Borrar'), array('action' => 'delete', $transporte['Transporte']['id']), null, __('Are you sure you want to delete # %s?', $transporte['Transporte']['id'])); ?>
 					</td>
 				</tr>
 				<?php endforeach; ?>
