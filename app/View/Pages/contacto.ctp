@@ -5,41 +5,12 @@
 </video>
 <div class="row">
 	<div class="col-md-8 col-md-offset-4">
-<!--		<div class="row bloque-texto">
-			<h3>Compras, consultas y envíos</h3>
- 			<table class="table table-bordered">
-				<tr>
-    				<td>ventas@tonosgraficos.com</td>
-    				<td>Compras, consultas de stock, Consultas en general</td>
-    			</tr>
-    			<tr>
-    				<td>logistica@tonosgraficos.com</td>
-    				<td>Información de su envío, o valor aproximado del mismo a diferentes partes del país</td>
-    			</tr>
-    			<tr>
-    				<td>consultatecnica@tonosgraficos.com</td>
-    				<td>Consulta técnica especializada, Compatibilidad de Productos con equipos de impresión </td>
-    			</tr>
-			</table>
-
- 			<h3>Gerencia y Administración</h3>
-			<table class="table table-bordered">
-				<tr>
-    				<td>gerencia@tonosgraficos.com</td>
-    				<td>Para comunicarse con la Gerencia de Tonos Gráficos</td>
-    			</tr>
-    			<tr>
-    				<td>administracion@tonosgraficos.com</td>
-    				<td>Consultas sobre Facturación, Envío de Pagos, Nuevo Cliente</td>
-    			</tr>
-			</table>
-		</div>-->
 		<div class="row bloque-texto">
 			<div class="col-md-6">
 			 <?php
-                echo $this->Form->create('Contacto',array('url' => '/pages/contacto'));
+               // echo $this->Form->create('Contacto',array('url' => '/pages/contacto'));
             ?>
-             <form class="form-vertical" role="form">
+             <form class="form-vertical" role="form" method="post" action="enviar.php">
 			<?php
                  echo '<div class="form-group">'.$this->Form->input( 'nombre', array('value'=>'', 'type'=>'text', 'class' => 'form-control',
                                             'placeholder' => 'Aqui su nombre',

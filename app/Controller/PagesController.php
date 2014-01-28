@@ -93,33 +93,30 @@ class PagesController extends AppController {
             	//Valido los datos del formulario
             	if($this->Contacto->validates()){
                     //Armo el mensaje para enviar al mail.
-                	$mensaje = 'Enviado por: '.$this->data['Contacto']['nombre']."\n".
-                           'Mail de contacto: '.$this->data['Contacto']['email']."\n".
-                           'Consulta: '.$this->data['Contacto']['mensaje'];
+                	$mensaje = 'Enviado por: '.$this->data['Page']['nombre']."\n".
+                           'Mail de contacto: '.$this->data['Page']['email']."\n".
+                           'Consulta: '.$this->data['Page']['mensaje'];
             
+			
                 	//Envia la consulta al mail de Compras.
-                	if($this->data['Contacto']['consulta'] == 0){
+                	if($this->data['Page']['consulta'] == 0){
 	                    $email->to('celeweidmann@gmail.com');
     	            }
         	        //Envia la consulta al mail de Envíos.
-            	    elseif ($this->data['Contacto']['consulta'] == 1) {
+            	    elseif ($this->data['Page']['consulta'] == 1) {
                 	    $email->to('celeweidmann@hotmail.com');
                 	}
-			//Para tonos graficos	
-				   elseif ($this->data['Contacto']['consulta'] == 2) {
+					//Envia la consulta al mail de Consulta Técnica	
+				   	elseif ($this->data['Contacto']['consulta'] == 2) {
                 	    $email->to('celeweidmann@hotmail.com');
                 	}
-					 //Envia la consulta al mail de Envíos.
+					 //Envia la consulta al mail de Gerencia.
             	    elseif ($this->data['Contacto']['consulta'] == 3) {
-                	    $email->to('consultatecnica@tonosgraficos.com');
+                	    $email->to('celeweidmann@hotmail.com');
                 	}
-					 //Envia la consulta al mail de Envíos.
+					 //Envia la consulta al mail de Administracion.
             	    elseif ($this->data['Contacto']['consulta'] == 4) {
-                	    $email->to('gerencia@tonosgraficos.com');
-                	}
-					 //Envia la consulta al mail de Envíos.
-            	    elseif ($this->data['Contacto']['consulta'] == 5) {
-                	    $email->to('administracion@tonosgraficos.com');
+                	    $email->to('celeweidmann@hotmail.com');
                 	}
 			//fin para tonos graficos
                     if ( $email->send($mensaje)){
@@ -127,6 +124,14 @@ class PagesController extends AppController {
             	        $this->Session->setFlash('<div class="alert alert-success"> Su consulta ha sido enviada con éxito.'.'<br>'.'
 							Nos comunicaremos con usted a la brevedad. </div>');
                      }
+					
+					 
+					if(mail($to, 'Consulta Sitio Web ', $mensaje, 'From: ' .$this->data['Contacto']['email'] )){
+                    	# Mensaje indicando que la consulta se ha enviado con éxito.
+                        $this->Session->setFlash('<div class="alert alert-success"> Su consulta ha sido enviada con éxito.'.'<br>'.' 
+                                            Nos comunicaremos con usted a la brevedad. </div>');
+                    }
+
            		}
         	}
        		//$this->redirect(array('controller' => 'contactos', 'action' => 'index'));

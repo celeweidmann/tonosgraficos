@@ -14,10 +14,16 @@
 				<br>
 				Ante cualquier duda sobre compatibilidad de productos, reclamos, sugerencias comunicate con nosotros
 				a traves de nuestro centro de soporte técnico</br>
-				<b>consultatecnica@tonosgraficos.com</b></br>
+				</br>
 				
 				<!--<a href="http://192.168.10.121/osticket16" class="btn btn-default">Centro de Soporte de Tonos Gráficos</a>-->
-				<a href="http://osticket.colectivolibre.com.ar/" class="btn btn-default" target="_blank">Centro de Soporte de Tonos Gráficos</a> 
+				<a href="http://osticket.colectivolibre.com.ar/" class="btn btn-default" target="_blank">Centro de Soporte de Tonos Gráficos</a>
+				
+				</br></br>
+				O comuníquese por mail a:</br> 
+				<a href="mailto:consultatecnica@tonosgraficos.com?Subject=Consulta%20técnica" target="_top">
+					<b>consultatecnica@tonosgraficos.com</b>
+				</a>
 			</p>
 		</div>
 	</div>

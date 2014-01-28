@@ -136,8 +136,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<div id="footer" class="col-md-12">
 		<div class="container">	
 			<div class="text-center">
-				Esperanza - Santa Fe - Argentina
+				Esperanza | Santa Fe | Argentina
 			</div>
+			<img src="/>
 		</div>
 	</div>
 		

@@ -48,8 +48,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<!--<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>-->
-		<nav class="navbar navbar-inverse" role="navigation">
+		<nav class="nav navbar-inverse" role="navigation">
 	    	<ul class="nav navbar-nav ">
+	    		<li>
+					<?php echo $this->Html->image('tonos_70.png');?>
+				</li>
 	    		<li class="dropdown">
     				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
       					Impresora <span class="caret"></span>
@@ -89,6 +92,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				</li>
 		   	</ul>
 		   	<ul class="nav navbar-nav navbar-right">
+		   		<li><a id="nombre"><?php echo AuthComponent::user('name') ?></a></li>
       			<li><?php echo $this->Html->link('Salir', '/users/logout');?></li>
     		</ul>
 		</nav>	
@@ -107,7 +111,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		</div>
 		<div class="footer" id="footer">
 			<div class="text-center">
-				Esperanza - Santa Fe - Argentina
+				Esperanza | Santa Fe | Argentina
 			</div>
 			<!--
 			<?php echo $this->Html->link(

@@ -48,7 +48,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<!--<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
 		</div>-->
-		<nav class="navbar navbar-inverse" role="navigation">
+		<nav class="nav navbar-inverse" role="navigation">
 	    	<ul class="nav navbar-nav ">
 	    		<!--
 	    		<li class="dropdown">
@@ -88,6 +88,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				</li>
 				-->
 				<li>
+					<?php echo $this->Html->image('tonos_70.png');?>
+				</li>
+				<li>
 					<?php echo $this->Html->link('Productos', array('controller'=>'productos', 'action'=>'index'));?>
 				</li>
 				<li class="dropdown">
@@ -99,8 +102,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
       					<li><?php echo $this->Html->link('Nuevo Pedido', array('controller'=>'pedidos', 'action'=>'agregar'));?></li>
       				</ul>
 				</li>
+				<li><a href="http://osticket.colectivolibre.com.ar" target="_blank">Soporte Técnico</a></li>
 		   	</ul>
 		   	<ul class="nav navbar-nav navbar-right">
+		   		<li><a id="nombre"><?php echo AuthComponent::user('name') ?></a></li>
       			<li><?php echo $this->Html->link('Salir', array('controller'=>'users', 'action'=>'logout'));?></li>
     		</ul>
 		</nav>	
@@ -119,7 +124,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		</div>
 		<div class="footer" id="footer">
 			<div class="text-center">
-				Esperanza - Santa Fe - Argentina
+				Esperanza | Santa Fe | Argentina
 			</div>
 			<!--
 			<?php echo $this->Html->link(
