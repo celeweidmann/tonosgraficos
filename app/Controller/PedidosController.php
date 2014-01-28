@@ -15,6 +15,8 @@ class PedidosController extends AppController {
  */
 	public $components = array('Paginator');
 
+
+
 	public function isAuthorized($user) {
     	// All registered users can add pedidos
     	if ($this->action === 'add') {
@@ -58,6 +60,7 @@ class PedidosController extends AppController {
  *
  * @return void
  */
+ /*
 	public function index() {
 		$this->Pedido->recursive = 0;
 		
@@ -66,21 +69,105 @@ class PedidosController extends AppController {
 											'user_id' => $this->Pedido->User->read())));
 		$this->set('pedidos',  $this->Paginator->paginate($pedidos));
 	}
+*/
+	public function index() {
+		$this->Pedido->recursive = 0;
+		/*debug($this->Pedido);
+		$id = $this->Auth->user('id');
+		debug($id);
+		$idd = 7;
+		debug($idd);*/
+		/*$pedidos = $this->Pedido->find('all', array(
+										'conditions' => array(
+											//'user_id' => $this->Auth->user('id'))));
+											'Pedido.user_id' => '7')));
+	*/
+		$options = array('conditions' => array('user_id' => $this->Auth->user('id'), 'estado_id !=' => 1));
+		$this->set('pedidos', $this->Pedido->find('all', $options));
 
+		//$this->set('pedidos',  $this->Paginator->paginate($pedidos));
+	}
+
+/**
+ * index_pendientes method
+ * 
+ */
+	public function index_pendientes(){	
+		$options = array('conditions' => array(
+												'user_id' => $this->Auth->user('id'),
+												'estado_id' => 2	));
+		$this->set('pedidospendientes', $this->Pedido->find('all', $options));
+	}
+
+/**
+ * index_pagados method
+ * 
+ */
+	public function index_pagados(){	
+		$options = array('conditions' => array(
+												'user_id' => $this->Auth->user('id'),
+												'estado_id' => 3	));
+		$this->set('pedidospagados', $this->Pedido->find('all', $options));
+	}
+
+/**
+ * index_entregados method
+ * 
+ */
+	public function index_entregados(){	
+		$options = array('conditions' => array(
+												'user_id' => $this->Auth->user('id'),
+												'estado_id' => 4));
+		$this->set('pedidosentregados', $this->Pedido->find('all', $options));
+	}
+	
 /**
  * indexUser method
  *
  * @return void
  */
 	public function admin_index() {
+		/*	
 		$this->Pedido->recursive = 0;
-		
 		$pedidos = $this->Pedido->find('all', array(
-										'conditions' => array(
+									'conditions' => array(
 											'user_id' => $this->Pedido->User->read())));
 		$this->set('pedidos',  $this->Paginator->paginate($pedidos));
+		*/
+		$options = array('conditions' => array('estado_id !=' => 1	));
+		$this->set('pedidos', $this->Pedido->find('all', $options));
 	}
 
+/**
+ * index_pagados method
+ *
+ * @return void
+ */
+	public function admin_index_pagados() {
+		$options = array('conditions' => array('estado_id' => 3	));
+		$this->set('pedidospagados', $this->Pedido->find('all', $options));
+	}
+
+/**
+ * index_pendientes method
+ *
+ * @return void
+ */
+	public function admin_index_pendientes() {
+		$options = array('conditions' => array('estado_id' => 2	));
+		$this->set('pedidospendientes', $this->Pedido->find('all', $options));
+	}
+
+
+/**
+ * index_pendientes method
+ *
+ * @return void
+ */
+	public function admin_index_entregados() {
+		$options = array('conditions' => array('estado_id' => 4));
+		$this->set('pedidosentregados', $this->Pedido->find('all', $options));
+	}
 
 /**
  * view method
@@ -90,11 +177,18 @@ class PedidosController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+		
 		if (!$this->Pedido->exists($id)) {
 			throw new NotFoundException(__('Invalid pedido'));
 		}
 		$options = array('conditions' => array('Pedido.' . $this->Pedido->primaryKey => $id));
 		$this->set('pedido', $this->Pedido->find('first', $options));
+		
+		# Todos los items del pedido
+		$items = $this->Pedido->Item->find('all', array(
+											'conditions' => array(
+												'pedido_id' => $id)));
+		$this->set('items', $items);
 	}
 
 /**
@@ -226,11 +320,14 @@ class PedidosController extends AppController {
   *
   * @return void
   */
-	public function confirmar($id=null){
+	public function confirmar($id=null, $costo_total=null){
 		$this->autoRender = false;
 		$pedidos = $this->Pedido->findById($id);
 		$this->Pedido->read(null, $pedidos['Pedido']['id']);
 		$this->Pedido->saveField('estado_id', 2);
+		
+		//Actualizar el costo del pedido
+		$this->Pedido->saveField('costo', $costo_total);
 		//Enviar mail a TonosGráficos y al usuario
 		
 		return $this->redirect(array('controller' => 'pedidos', 'action' =>'index'));	
