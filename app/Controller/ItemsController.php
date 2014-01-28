@@ -177,7 +177,7 @@ class ItemsController extends AppController {
 																				)));
 				$this->Item->saveField('recipiente', $recipiente['Recipiente']['name']);
 				
-				$this->Session->setFlash(__('The item has been saved.'));
+				//$this->Session->setFlash(__('The item has been saved.'));
 				return $this->redirect(array('controller' => 'items', 'action' => 'solicitar', $id));
 			} else {
 				$this->Session->setFlash(__('The item could not be saved. Please, try again.'));

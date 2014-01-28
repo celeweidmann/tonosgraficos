@@ -1,6 +1,6 @@
 <div class="items index">
-	<h2><?php echo __('Items'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<h3 class="text-center"><?php echo __('Items'); ?></h3>
+	<table class="table table-striped" cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('costo'); ?></th>
@@ -13,7 +13,7 @@
 			<th><?php echo $this->Paginator->sort('id_marca'); ?></th>
 			<th><?php echo $this->Paginator->sort('id_pedido'); ?></th>
 			<th><?php echo $this->Paginator->sort('id_producto'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($items as $item): ?>
 	<tr>
@@ -29,9 +29,9 @@
 		<td><?php echo h($item['Item']['id_pedido']); ?>&nbsp;</td>
 		<td><?php echo h($item['Item']['id_producto']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $item['Item']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $item['Item']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), null, __('Are you sure you want to delete # %s?', $item['Item']['id'])); ?>
+			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $item['Item']['id'])); ?>
+			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $item['Item']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Borrar'), array('action' => 'delete', $item['Item']['id']), null, __('Are you sure you want to delete # %s?', $item['Item']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

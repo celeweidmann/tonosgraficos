@@ -1,5 +1,20 @@
 <link href="/css/items/solicitar.css" type="text/css" rel="stylesheet">
-
+<br><br>
+<div class="col-md-12">
+	<div class="row">
+	<div class="col-md-4">
+		<p class="pasonoactivo"><span class="badge pasos">1 </span> Elegi el transporte para realizar el envío.
+		</p>
+	</div>
+	<div class="col-md-4">
+		<p><span class="badge pasos pasoactivo">2 </span> Seleccioná los items del pedido y confirmá.</p>
+	</div>
+	<div class="col-md-4">
+		<p class="pasonoactivo"><span class="badge pasos">3 </span> Recibiras información de pago</p>
+	</div>
+	</div>
+</div>
+<div class="col-md-12">
 <div class="row">
 	<!--
 	<div class="col-md-2 col-md-offset-1">
@@ -16,7 +31,7 @@
 			<div class="items form">
 				<?php echo $this->Form->create('Item'); ?>
 					<fieldset>
-						<legend><?php echo __('Add Item'); ?></legend>
+						<legend><h3><?php echo __('Nuevo Item'); ?></h3></legend>
 						<?php
 							echo $this->Form->input('marca_id', array('empty' => 'Elije una marca'));
 					        echo $this->Form->input('modelo_id', array('empty' => 'Elije un modelo'));
@@ -33,7 +48,7 @@
 		</div>
 	</div>
 	<div class="col-md-8">
-		<legend><?php echo __('Pedido'); ?></legend>
+		<legend><h3><?php echo __('Pedido'); ?></h3></legend>
 		<table  class="table table-striped">
 			<thead>
 				<tr>
@@ -72,12 +87,13 @@
 												'controller'=>'pedidos','action' => 'cancelar', $item['Item']['pedido_id'], null), 
 												array('class'=>'btn btn-warning')); ?>
 			<?php echo $this->Html->link(__('Confirmar Pedido'), array(
-												'controller'=>'pedidos','action' => 'confirmar', $item['Item']['pedido_id'], null), 
+												//'controller'=>'pedidos','action' => 'confirmar', $item['Item']['pedido_id'], null),
+												'controller'=>'pedidos','action' => 'confirmar', $item['Item']['pedido_id'], $costo_total, null), 
 												array('class'=>'btn btn-success')); ?>
 		</div>
 	</div>
 </div>
-
+</div>
 
 <?php
 $this->Js->get('#ItemMarcaId')->event('change', 
