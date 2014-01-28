@@ -14,24 +14,24 @@
 		<div class="row pedidos">
 			<h2><?php echo __('Pedido'); ?></h2>
 			<dl class="dl-horizontal">
-				<dt><?php echo __('Id'); ?></dt>
+				<!--<dt><?php echo __('Id'); ?></dt>
 				<dd>
 					<?php echo h($pedido['Pedido']['id']); ?>
 					&nbsp;
-				</dd>
-				<dt><?php echo __('Estado Id'); ?></dt>
+				</dd>-->
+				<dt><?php echo __('Estado'); ?></dt>
 				<dd>
-					<?php echo h($pedido['Pedido']['estado_id']); ?>
+					<?php echo h($pedido['Estado']['name']); ?>
 					&nbsp;
 				</dd>
-				<dt><?php echo __('Transporte Id'); ?></dt>
+				<dt><?php echo __('Transporte'); ?></dt>
 				<dd>
-					<?php echo h($pedido['Pedido']['transporte_id']); ?>
+					<?php echo h($pedido['Transporte']['name']); ?>
 					&nbsp;
 				</dd>
-				<dt><?php echo __('Costo'); ?></dt>
+				<dt><?php echo __('Costo Total'); ?></dt>
 				<dd>
-					<?php echo h($pedido['Pedido']['costo']); ?>
+					$ <?php echo h($pedido['Pedido']['costo']); ?>
 					&nbsp;
 				</dd>
 			</dl>
@@ -41,19 +41,48 @@
 				<thead>
 					<tr>
 						<th>Item</th>
+						<th>Marca</th>
+						<th>Modelo</th>
+						<th>Cartucho</th>
+						<th>Tinta</th>
+						<th>Recipiente</th>
+						<th>Precio</th>
 					</tr>
 				</thead>
 				<tbody>
+					<?php foreach($items as $item): ?>
 					<tr>
-						<td>Item 1</td>
+						<td>
+							<?php echo $item['Item']['id'];?>
+						</td>
+						<td>
+							<?php echo $item['Marca']['name'];?>
+						</td>
+						<td>
+							<?php echo $item['Modelo']['name'];?>
+						</td>
+						<td>
+							<?php echo $item['Cartucho']['name'];?>
+						</td>
+						<td>
+							<?php echo $item['Item']['tinta'];?>
+						</td>
+						<td>
+							<?php echo $item['Item']['recipiente'];?>
+						</td>
+						<td>
+							<?php echo $item['Item']['costo'];?>
+						</td>
 					</tr>
-					<tr>
-						<td>Item 2</td>
-					</tr>
-					<tr>
-						<td>Item 2</td>
-					</tr>
+					<?php endforeach;?>
 				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="5"></th>
+						<th >Total</th>
+						<th><?php echo $pedido['Pedido']['costo'] ?></th>
+					</tr>
+				</tfoot>
 			</table>
 		</div>
 	</div>

@@ -3,21 +3,19 @@
 		<div class="actions">
 			<h3><?php echo __('Actions'); ?></h3>
 			<ul class="list-unstyled">
-				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('Listado Pedido'), array('action' => 'index')); ?></li>
-				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('Agregar Pedido'), array('action' => 'agregar')); ?></li>
+				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('New Pedido'), array('action' => 'add')); ?></li>
 			</ul>
 		</div>
 	</div>-->
-
 	<div class="col-md-12">
 		<div class="row pedidos index">
 			<h3><?php echo __('Pedidos'); ?></h3>
 			
 			<ul class="nav nav-tabs">
-				<li class="active"><?php echo $this->Html->link('Todos', array('action'=>'index'));?></li>
-  				<li><?php echo $this->Html->link('Pendientes', array('action'=>'index_pendientes'));?></li>
-  				<li><?php echo $this->Html->link('Pagados', array('action'=>'index_pagados'));?></li>
-  				<li><?php echo $this->Html->link('Entregados', array('action'=>'index_entregados'));?></li>
+				<li><?php echo $this->Html->link('Todos', array('action'=>'admin_index'));?></li>
+  				<li><?php echo $this->Html->link('Pendientes', array('action'=>'admin_index_pendientes'));?></li>
+  				<li><?php echo $this->Html->link('Pagados', array('action'=>'admin_index_pagados'));?></li>
+  				<li class="active"><?php echo $this->Html->link('Entregados', array('action'=>'admin_index_entregados'));?></li>
 			</ul>
 			<br>
 			
@@ -31,9 +29,9 @@
 					<th><?php echo $this->Paginator->sort('created'); ?></th>
 					<th><?php echo $this->Paginator->sort('modified'); ?></th>
 					<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-					<th class="actions"><?php echo __('Actions'); ?></th>
+					<th class="actions"><?php echo __('Acciones'); ?></th>
 			</tr>
-			<?php foreach ($pedidos as $pedido): ?>
+			<?php foreach ($pedidosentregados as $pedido): ?>
 			<tr>
 				<td><?php echo h($pedido['Pedido']['id']); ?>&nbsp;</td>
 				<!--<td><?php echo h($pedido['Pedido']['estado_id']); ?>&nbsp;</td>-->
@@ -48,8 +46,8 @@
 				<td><?php echo h($pedido['User']['name']); ?>&nbsp;</td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $pedido['Pedido']['id'])); ?>
-				<!--	<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $pedido['Pedido']['id'])); ?>
-					<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $pedido['Pedido']['id']), null, __('Are you sure you want to delete # %s?', $pedido['Pedido']['id'])); ?>-->
+					<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $pedido['Pedido']['id'])); ?>
+					<?php echo $this->Form->postLink(__('Borrar'), array('action' => 'delete', $pedido['Pedido']['id']), null, __('Are you sure you want to delete # %s?', $pedido['Pedido']['id'])); ?>
 				</td>
 			</tr>
 		<?php endforeach; ?>
