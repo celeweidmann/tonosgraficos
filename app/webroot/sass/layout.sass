@@ -4,7 +4,9 @@
 $azul-claro: #B3CAD6
 $azul-oscuro: #525872
 $azul-footer: #6795AD
+$azul-font: #2E2E2E
 $blanco: #FFFFFF
+$gris: #BCBEC7
 
 @include font-face("ratio", font-files("Rationale-Regular.otf"))
 
@@ -23,6 +25,32 @@ body
   margin:
     left: 15px
     right: 15px
+
+.pasos
+  background-color: #99CC99
+  border-bottom-left-radius: 12px
+  border-bottom-right-radius: 12px
+  border-top-left-radius: 12px
+  border-top-right-radius: 12px
+  color: #FFFFFF
+  display: inline-block
+  font-size: 16px
+  font-weight: bold
+  line-height: 1
+  min-width: 11px
+  padding-bottom: 4px
+  padding-left: 8px
+  padding-right: 8px
+  padding-top: 4px
+  text-align: center
+  vertical-align: baseline
+  white-space: nowrap
+
+.pasoactivo
+  background-color: #47A447
+
+.pasonoactivo
+  color: $gris
 
 .bloque-texto
   background-color: rgba(255, 255, 255, 0.80)
@@ -101,6 +129,9 @@ h3
      
 .menu-icono
   margin-left: 0px
+
+.nav
+  max-height: 50px
      
 .navbar
   min-height: 40px
@@ -122,15 +153,35 @@ h3
 .nav > li > a 
   padding-left: 8px
   padding-right: 8px
+  color: $azul-font
+  font:
+    family: "ratio"
+    size: 18px
+
+.nav > li > a:hover , .nav > li > a:focus
+  color: #0075a3
+
+.navbar-inverse
+  background-color: $gris
+
+.navbar-inverse .navbar-nav > .disabled > a:focus
+  color: #0075a3
+  background-color: transparent
 
 #footer
   background: $azul-oscuro
   bottom: 0
   color: $azul-claro
+  font:
+    family: "ratio"
+    size: 14px
   padding-bottom: 10px
   padding-top: 10px
   position: fixed
   width: 100%
+
+#nombre
+  color: $blanco
 
 #video_background
   position: fixed 
