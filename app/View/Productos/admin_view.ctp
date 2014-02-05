@@ -1,18 +1,19 @@
 <div class="row">
-	<div class="col-md-2 col-md-offset-1">
+	<div class="col-md-2">
 		<div class="actions">
-			<h3><?php echo __('Actions'); ?></h3>
+			<!--<h3><?php echo __('Actions'); ?></h3>-->
+			<br><br>
 			<ul class="list-unstyled">
-				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('Edit Producto'), array('action' => 'edit', $producto['Producto']['id'])); ?> </li>
-				<li class="btn btn-default btn-block"><?php echo $this->Form->postLink(__('Delete Producto'), array('action' => 'delete', $producto['Producto']['id']), null, __('Are you sure you want to delete # %s?', $producto['Producto']['id'])); ?> </li>
 				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('List Productos'), array('action' => 'index')); ?> </li>
 				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('New Producto'), array('action' => 'add')); ?> </li>
+				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('Edit Producto'), array('action' => 'edit', $producto['Producto']['id'])); ?> </li>
+				<li class="btn btn-default btn-block"><?php echo $this->Form->postLink(__('Delete Producto'), array('action' => 'delete', $producto['Producto']['id']), null, __('Are you sure you want to delete # %s?', $producto['Producto']['id'])); ?> </li>
 			</ul>
 		</div>
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-10">
 		<div class="productos view">
-		<h2><?php echo __('Producto'); ?></h2>
+		<legend><h3><?php echo __('Producto'); ?></h3></legend>	
 			<dl>
 				<dt><?php echo __('Id'); ?></dt>
 				<dd>

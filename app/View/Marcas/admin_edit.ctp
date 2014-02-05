@@ -2,10 +2,10 @@
 <div class="row">
 	<div class="col-md-2">
 		<div class="actions">
-			<h3><?php echo __('Acciones'); ?></h3>
+			<!--<h3><?php echo __('Acciones'); ?></h3>--><br><br>
 			<ul class="list-unstyled">
-				<li class="btn btn-default btn-block"><?php echo $this->Form->postLink(__('Borrar Marca'), array('action' => 'delete', $this->Form->value('Marca.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Marca.id'))); ?></li>
 				<li class="btn btn-default btn-block"><?php echo $this->Html->link(__('Listar Marcas'), array('action' => 'index')); ?></li>
+				<li class="btn btn-default btn-block"><?php echo $this->Form->postLink(__('Borrar Marca'), array('action' => 'delete', $this->Form->value('Marca.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Marca.id'))); ?></li>
 			</ul>
 		</div>
 	</div>

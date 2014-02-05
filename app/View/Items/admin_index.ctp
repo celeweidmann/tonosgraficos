@@ -8,11 +8,16 @@
 			<th><?php echo $this->Paginator->sort('cantidad'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
-			<th><?php echo $this->Paginator->sort('id_cartucho'); ?></th>
+			<!--<th><?php echo $this->Paginator->sort('id_cartucho'); ?></th>
 			<th><?php echo $this->Paginator->sort('id_modelo'); ?></th>
 			<th><?php echo $this->Paginator->sort('id_marca'); ?></th>
 			<th><?php echo $this->Paginator->sort('id_pedido'); ?></th>
-			<th><?php echo $this->Paginator->sort('id_producto'); ?></th>
+			<th><?php echo $this->Paginator->sort('id_producto'); ?></th>-->
+			<th><?php echo $this->Paginator->sort('cartucho'); ?></th>
+			<th><?php echo $this->Paginator->sort('modelo'); ?></th>
+			<th><?php echo $this->Paginator->sort('marca'); ?></th>
+			<th><?php echo $this->Paginator->sort('id_pedido'); ?></th>
+			<th><?php echo $this->Paginator->sort('id_producto'); ?>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($items as $item): ?>
@@ -23,9 +28,14 @@
 		<td><?php echo h($item['Item']['cantidad']); ?>&nbsp;</td>
 		<td><?php echo h($item['Item']['created']); ?>&nbsp;</td>
 		<td><?php echo h($item['Item']['modified']); ?>&nbsp;</td>
-		<td><?php echo h($item['Item']['id_cartucho']); ?>&nbsp;</td>
-		<td><?php echo h($item['Item']['id_modelo']); ?>&nbsp;</td>
+		<!--<td><?php echo h($item['Item']['id_cartucho']); ?>&nbsp;</td>-->
+		<td><?php echo h($item['Cartucho']['name']); ?>&nbsp;</td>
+		<!--<td><?php echo h($item['Item']['id_modelo']); ?>&nbsp;</td>
 		<td><?php echo h($item['Item']['id_marca']); ?>&nbsp;</td>
+		<td><?php echo h($item['Item']['id_pedido']); ?>&nbsp;</td>
+		<td><?php echo h($item['Item']['id_producto']); ?>&nbsp;</td>-->
+		<td><?php echo h($item['Modelo']['name']); ?>&nbsp;</td>
+		<td><?php echo h($item['Marca']['name']); ?>&nbsp;</td>
 		<td><?php echo h($item['Item']['id_pedido']); ?>&nbsp;</td>
 		<td><?php echo h($item['Item']['id_producto']); ?>&nbsp;</td>
 		<td class="actions">
@@ -50,9 +60,10 @@
 	?>
 	</div>
 </div>
+<!--
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Item'), array('action' => 'add')); ?></li>
 	</ul>
-</div>
+</div>-->

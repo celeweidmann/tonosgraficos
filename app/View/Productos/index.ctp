@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-2 col-md-offset-1">
+	<div class="col-md-2">
 		<div class="actions">
 			<!--<h3><?php echo __('Actions'); ?></h3>
 			<ul class="list-unstyled">
@@ -7,7 +7,7 @@
 			</ul>-->
 		</div>
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-10">
 		<div class="productos index">
 			<h3><?php echo __('Productos'); ?></h3>
 			<table class="table table-striped" cellpadding="0" cellspacing="0">
