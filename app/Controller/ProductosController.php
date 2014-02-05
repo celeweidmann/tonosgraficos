@@ -69,7 +69,7 @@ class ProductosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function adin_view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Producto->exists($id)) {
 			throw new NotFoundException(__('Invalid producto'));
 		}
