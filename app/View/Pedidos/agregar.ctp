@@ -32,10 +32,10 @@
 			
 					<?php
 						echo $this->Form->label('Cliente');
-						echo ': '.$users['User']['name'].' '.$users['User']['surname'];
+						//echo ': '.$users['User']['name'].' '.$users['User']['surname'];
 				//		echo $this->Form->input('user', array('disabled' => true, 'value'=>$users['User']['name']));  
 				
-						//echo $this->Form->input('cliente');
+						echo $this->Form->input('cliente' , array('value'=>$users['User']['name'].' '.$users['User']['surname'])) ;
 						//echo $this->Form->input('estado_id');
 						//echo $this->Form->input('estado_id', array('type'=>'select'));
 						//echo $this->Form->input('transporte_id');

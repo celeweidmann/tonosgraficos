@@ -176,8 +176,7 @@ class PedidosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
-		
+	public function view($id = null) {		
 		if (!$this->Pedido->exists($id)) {
 			throw new NotFoundException(__('Invalid pedido'));
 		}
@@ -199,6 +198,9 @@ class PedidosController extends AppController {
  * @return void
  */
 	public function admin_view($id = null) {
+		$options = array('conditions' => array('pedido_id' => $id	));
+		$this->set('items', $this->Pedido->Item->find('all', $options));
+												
 		if (!$this->Pedido->exists($id)) {
 			throw new NotFoundException(__('Invalid pedido'));
 		}
@@ -224,7 +226,7 @@ class PedidosController extends AppController {
 			$this->request->data['Pedido']['user_id'] = $this->Auth->user('id');
 			$this->Pedido->create();
 			if ($this->Pedido->save($this->request->data)) {
-				$this->Session->setFlash(__('The pedido has been saved.'));
+				//$this->Session->setFlash(__('The pedido has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The pedido could not be saved. Please, try again.'));
@@ -240,6 +242,13 @@ class PedidosController extends AppController {
  * @return void
  */
 	public function admin_edit($id = null) {
+		//$estados = $this->Pedido->Estado->find('list');
+		//$this->set(compact('estados'));
+		$this->set('estados', $this->Pedido->Estado->find('list'));
+		//$transportes = $this->Pedido->Transporte->find('list');
+		//$this->set(compact('transportes'));
+		$this->set('transportes', $this->Pedido->Transporte->find('list'));
+			
 		if (!$this->Pedido->exists($id)) {
 			throw new NotFoundException(__('Invalid pedido'));
 		}
@@ -296,6 +305,9 @@ class PedidosController extends AppController {
 		$this->set(compact('users'));
 		$this->set('id', $this->Pedido->id);
 		
+		
+		$this->set('cliente', $users['User']['name'].' '.$users['User']['surname'] );
+		
 		if ($this->request->is('post')) {
 			$this->request->data['Pedido']['user_id'] = $this->Auth->user('id');
 			$this->Pedido->create();
@@ -321,7 +333,7 @@ class PedidosController extends AppController {
   * @return void
   */
 	public function confirmar($id=null, $costo_total=null){
-		$this->autoRender = false;
+		//$this->autoRender = false;
 		$pedidos = $this->Pedido->findById($id);
 		$this->Pedido->read(null, $pedidos['Pedido']['id']);
 		$this->Pedido->saveField('estado_id', 2);
@@ -330,7 +342,7 @@ class PedidosController extends AppController {
 		$this->Pedido->saveField('costo', $costo_total);
 		//Enviar mail a TonosGráficos y al usuario
 		
-		return $this->redirect(array('controller' => 'pedidos', 'action' =>'index'));	
+		return $this->redirect(array('controller' => 'pedidos', 'action' =>'datospago'));	
 	}
 
  /**
@@ -354,5 +366,64 @@ class PedidosController extends AppController {
 		$this->Pedido->delete($id);
 		
 		return $this->redirect(array('controller' => 'pedidos', 'action' =>'index'));	
+	}
+	
+	
+/**
+ * pagar method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_pagar($id = null) {
+		$this->set('estados', $this->Pedido->Estado->find('list'));
+		$this->set('transportes', $this->Pedido->Transporte->find('list'));
+			
+		if (!$this->Pedido->exists($id)) {
+			throw new NotFoundException(__('Invalid pedido'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Pedido->save($this->request->data)) {
+				$this->Session->setFlash(__('The pedido has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The pedido could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Pedido.' . $this->Pedido->primaryKey => $id));
+			$this->request->data = $this->Pedido->find('first', $options);
+		}
+	}
+	
+/**
+ * pagar method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_entregar($id = null) {
+		$this->set('estados', $this->Pedido->Estado->find('list'));
+		$this->set('transportes', $this->Pedido->Transporte->find('list'));
+			
+		if (!$this->Pedido->exists($id)) {
+			throw new NotFoundException(__('Invalid pedido'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Pedido->save($this->request->data)) {
+				$this->Session->setFlash(__('The pedido has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The pedido could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Pedido.' . $this->Pedido->primaryKey => $id));
+			$this->request->data = $this->Pedido->find('first', $options);
+		}
+	}
+
+	public function datospago(){
+		
 	}
 }

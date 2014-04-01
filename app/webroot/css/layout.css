@@ -181,21 +181,22 @@ h3 {
   font-family: "ratio";
   padding-left: 10px;
   padding-right: 10px;
+  padding-top: 5px !important;
 }
 
-/* line 130, ../sass/layout.sass */
+/* line 131, ../sass/layout.sass */
 .menu-icono {
   margin-left: 0px;
 }
 
-/* line 133, ../sass/layout.sass */
+/* line 134, ../sass/layout.sass */
 .nav {
   max-height: 50px;
 }
 
-/* line 136, ../sass/layout.sass */
+/* line 137, ../sass/layout.sass */
 .navbar {
-  min-height: 40px;
+  min-height: 35px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   border-top-left-radius: 0px;
@@ -204,18 +205,23 @@ h3 {
   margin-right: 15px;
 }
 
-/* line 146, ../sass/layout.sass */
+/* line 147, ../sass/layout.sass */
 .navbar-inner {
   min-height: 40px;
 }
 
-/* line 149, ../sass/layout.sass */
+/* line 150, ../sass/layout.sass */
 .navbar-default {
   background-color: white;
   margin-bottom: 0px;
 }
 
-/* line 153, ../sass/layout.sass */
+/* line 154, ../sass/layout.sass */
+.navbar-peque {
+  height: 30px !important;
+}
+
+/* line 158, ../sass/layout.sass */
 .nav > li > a {
   padding-left: 8px;
   padding-right: 8px;
@@ -224,23 +230,23 @@ h3 {
   font-size: 18px;
 }
 
-/* line 161, ../sass/layout.sass */
+/* line 166, ../sass/layout.sass */
 .nav > li > a:hover, .nav > li > a:focus {
   color: #0075a3;
 }
 
-/* line 164, ../sass/layout.sass */
+/* line 169, ../sass/layout.sass */
 .navbar-inverse {
   background-color: #bcbec7;
 }
 
-/* line 167, ../sass/layout.sass */
+/* line 172, ../sass/layout.sass */
 .navbar-inverse .navbar-nav > .disabled > a:focus {
   color: #0075a3;
   background-color: transparent;
 }
 
-/* line 171, ../sass/layout.sass */
+/* line 176, ../sass/layout.sass */
 #footer {
   background: #525872;
   bottom: 0;
@@ -253,12 +259,12 @@ h3 {
   width: 100%;
 }
 
-/* line 183, ../sass/layout.sass */
+/* line 188, ../sass/layout.sass */
 #nombre {
   color: white;
 }
 
-/* line 186, ../sass/layout.sass */
+/* line 191, ../sass/layout.sass */
 #video_background {
   position: fixed;
   bottom: 0px;
@@ -272,7 +278,7 @@ h3 {
   background-color: white;
 }
 
-/* line 199, ../sass/layout.sass */
+/* line 204, ../sass/layout.sass */
 #video_pattern {
   background: white;
   position: fixed;
@@ -284,7 +290,7 @@ h3 {
   z-index: 1;
 }
 
-/* line 210, ../sass/layout.sass */
+/* line 215, ../sass/layout.sass */
 #flashcontent {
   height: 100%;
   width: 100%;

@@ -27,7 +27,8 @@
 				</dd>
 				<dt><?php echo __('Marca Id'); ?></dt>
 				<dd>
-					<?php echo h($modelo['Modelo']['marca_id']); ?>
+					<!--<?php echo h($modelo['Modelo']['marca_id']); ?>-->
+					<?php echo h($modelo['Marca']['name']); ?>
 					&nbsp;
 				</dd>
 			</dl>

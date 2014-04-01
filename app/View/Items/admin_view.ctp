@@ -26,12 +26,12 @@
 			</dd>
 			<dt><?php echo __('Color'); ?></dt>
 			<dd>
-				<?php echo h($item['Item']['color']); ?>
+				<?php echo h($item['Item']['tinta']); ?>
 				&nbsp;
 			</dd>
 			<dt><?php echo __('Cantidad'); ?></dt>
 			<dd>
-				<?php echo h($item['Item']['cantidad']); ?>
+				<?php echo h($item['Item']['recipiente']); ?>
 				&nbsp;
 			</dd>
 			<dt><?php echo __('Created'); ?></dt>
@@ -61,12 +61,12 @@
 			</dd>
 			<dt><?php echo __('Id Pedido'); ?></dt>
 			<dd>
-				<?php echo h($item['Item']['id_pedido']); ?>
+				<?php echo h($item['Item']['pedido_id']); ?>
 				&nbsp;
 			</dd>
 			<dt><?php echo __('Id Producto'); ?></dt>
 			<dd>
-				<?php echo h($item['Item']['id_producto']); ?>
+				<?php echo h($item['Item']['producto_id']); ?>
 				&nbsp;
 			</dd>
 		</dl>

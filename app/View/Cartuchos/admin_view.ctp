@@ -27,7 +27,8 @@
 				</dd>
 				<dt><?php echo __('Modelo Id'); ?></dt>
 				<dd>
-					<?php echo h($cartucho['Cartucho']['modelo_id']); ?>
+					<!--<?php echo h($cartucho['Cartucho']['modelo_id']); ?>-->
+					<?php echo h($cartucho['Modelo']['name']); ?>
 					&nbsp;
 				</dd>
 			</dl>

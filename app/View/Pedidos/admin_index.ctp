@@ -33,7 +33,16 @@
 					<th class="actions"><?php echo __('Acciones'); ?></th>
 			</tr>
 			<?php foreach ($pedidos as $pedido): ?>
-			<tr>
+			<?php 
+				if($pedido['Estado']['id']== 2)
+					echo '<tr class="danger">';
+				elseif($pedido['Estado']['id']== 3)
+					echo '<tr class="warning">';
+				elseif($pedido['Estado']['id']== 4)
+					echo '<tr class="success">';
+				
+			?>
+			<!--<tr>-->
 				<td><?php echo h($pedido['Pedido']['id']); ?>&nbsp;</td>
 				<!--<td><?php echo h($pedido['Pedido']['estado_id']); ?>&nbsp;</td>-->
 				<td><?php echo h($pedido['Estado']['name']); ?>&nbsp;</td>

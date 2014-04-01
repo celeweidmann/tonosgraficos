@@ -17,16 +17,17 @@
 			<?php
 				echo $this->Form->input('id');
 				echo $this->Form->input('costo');
-				echo $this->Form->input('color');
-				echo $this->Form->input('cantidad');
-				echo $this->Form->input('cartucho');
-				echo $this->Form->input('id_modelo');
-				echo $this->Form->input('id_marca');
-				echo $this->Form->input('id_pedido');
-				echo $this->Form->input('id_producto');
+				echo $this->Form->input('tinta', array('type'=>'select'));
+				echo $this->Form->input('recipiente', array('type'=>'select'));
+				echo $this->Form->input('cartucho', array('type'=>'select'));
+				echo $this->Form->input('modelo', array('type'=>'select'));
+				echo $this->Form->input('marca', array('type'=>'select'));
+				echo $this->Form->input('pedido_id');
+				echo $this->Form->input('producto_id');
 			?>
 		</fieldset>
 		<?php echo $this->Form->end(__('Submit')); ?>
+		<button class="btn btn-warning">Cancelar</button>
 	</div>
 </div>
 

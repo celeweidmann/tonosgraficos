@@ -1,0 +1,76 @@
+<?php
+    echo $this -> Html -> script(array('load-image.min', 'bootstrap-image-gallery.min'));
+    echo $this -> Html -> css(array( 'bootstrap-image-gallery.min', 'estilo', ));
+?>
+<div class="row">
+    <div class="span8">
+        <h2>Contáctenos</h2>
+        <em><p class="muted">Contact</p></em>
+    </div>
+</div>  
+<div class="row">
+    <div class="span8">
+        <div class="span4">  <br>          
+            <?php echo $this->Form->create('Contacto',array('url' => array('controller'=>'contactos', 'action'=>'index' ,  'model'=> 'false')));?>      
+            <form class="form-vertical">    
+                <?php
+                 echo $this->Form->input( 'nombre', array('value'=>'',  'type'=>'text', 'class'=>'span3',
+                                            'placeholder' => 'Aqui su nombre',
+                                            'error' => array('attributes' => array('wrap' => 'div', 'class' => 'alert alert-error'))
+                                           ));
+                 echo $this->Form->input( 'email', array('value'=>'',  'type'=>'email', 'class'=>'required span3',
+                                            'placeholder' => 'Aqui su dirección de correo',
+                                            'error' => array('attributes' => array('wrap' => 'div', 'class' => 'alert alert-error')) ));            
+                 echo $this->Form->input('consulta', array(
+                                            'options' => array('Cabaña','Náutica'),
+                                            'class' => 'span3 ',  
+                                            'error' => array('attributes' => array('wrap' => 'div', 'class' => 'alert alert-error'))
+                                        ));
+                 echo $this->Form->input( 'mensaje', array(
+                                            'value'=>'', 'type'=>'textarea', 'rows'=>'6', 'class'=>'span3',
+                                            'error' => array('attributes' => array('wrap' => 'div', 'class' => 'alert alert-error'))
+                                            ));
+                ?>
+                <button type="submit" class="btn">Enviar<?php echo $this->Form->end(); ?></button>
+            </form>
+        </div>
+        <div class="span3">
+            <h4>Cabañas</h4>
+            <div class="row">
+               <table class="table">
+                   <tr>
+                       <td><img class="icono" src ="img/iconos/telefono1.png"/></td>
+                       <td>(+54) (0342) 495 0480</br>(+54) (0342) 155 326489</td>
+                   </tr>
+                   <tr>
+                       <td><i class="icon-envelope"></i></td>
+                       <td>complejolojorgesv@gmail.com<br>complejolojorge@live.com.ar </br></td>
+                   </tr>
+                   <tr>
+                       <td><img class="icono" src ="img/iconos/direccion1.png"/></td>
+                       <td>Antártida Argentina y Panamá - Sauce Viejo - Santa Fe.</td>
+                   </tr>
+               </table>       
+            </div>
+        </div>
+        <div class="span3">
+            <h4>Almacén Náutico</h4>
+            <div class="row">
+                <table class="table">
+                    <tr>
+                        <td><img class="icono" src ="img/iconos/telefono1.png"/></td>
+                        <td> (+54) (0342) 156 144941</br></td>
+                    </tr>
+                    <tr>
+                        <td><i class="icon-envelope"></i></td>
+                        <td>lojorge_pesca@hotmail.com.ar</td>
+                    </tr>
+                    <tr>
+                        <td><img class="icono" src ="img/iconos/direccion1.png"/></td>
+                        <td>Ubicado sobre Ruta 11,( Altura Km 446) entre calles Mendoza y Entre Ríos (a pasos de la Forestal Sauce Viejo).</td>
+                    </tr>    
+                </table>   
+            </div>
+        </div>
+    </div>
+</div>

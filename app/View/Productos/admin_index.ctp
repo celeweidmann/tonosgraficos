@@ -26,9 +26,9 @@
 				<tr>
 					<td><?php echo h($producto['Producto']['id']); ?>&nbsp;</td>
 					<td><?php echo h($producto['Producto']['precio']); ?>&nbsp;</td>
-					<td><?php echo h($producto['Producto']['cartucho_id']); ?>&nbsp;</td>
-					<td><?php echo h($producto['Producto']['tinta_id']); ?>&nbsp;</td>
-					<td><?php echo h($producto['Producto']['recipiente_id']); ?>&nbsp;</td>
+					<td><?php echo h($producto['Cartucho']['name']); ?>&nbsp;</td>
+					<td><?php echo h($producto['Tinta']['name']); ?>&nbsp;</td>
+					<td><?php echo h($producto['Recipiente']['name']); ?>&nbsp;</td>
 					<td><?php echo h($producto['Producto']['created']); ?>&nbsp;</td>
 					<td><?php echo h($producto['Producto']['modified']); ?>&nbsp;</td>
 					<td class="actions">
@@ -48,7 +48,7 @@
 			<div class="paging">
 			<?php
 				echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-				echo $this->Paginator->numbers(array('separator' => ''));
+				echo $this->Paginator->numbers(array('separator' => ' - '));
 				echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 			?>
 			</div>

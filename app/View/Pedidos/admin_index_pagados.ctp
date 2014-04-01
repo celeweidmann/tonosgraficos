@@ -29,6 +29,7 @@
 					<th><?php echo $this->Paginator->sort('created'); ?></th>
 					<th><?php echo $this->Paginator->sort('modified'); ?></th>
 					<th><?php echo $this->Paginator->sort('user_id'); ?></th>
+					<th><?php echo 'Registrar'; ?></th>
 					<th class="actions"><?php echo __('Acciones'); ?></th>
 			</tr>
 			<?php foreach ($pedidospagados as $pedido): ?>
@@ -44,6 +45,9 @@
 				<td><?php echo h($pedido['Pedido']['modified']); ?>&nbsp;</td>
 				<!--<td><?php echo h($pedido['Pedido']['user_id']); ?>&nbsp;</td>-->
 				<td><?php echo h($pedido['User']['name']); ?>&nbsp;</td>
+				<td class="actions">
+					<?php echo $this->Html->link(__('Entrega'), array('action' => 'entregar', $pedido['Pedido']['id'])); ?>
+				</td>
 				<td class="actions">
 					<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $pedido['Pedido']['id'])); ?>
 					<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $pedido['Pedido']['id'])); ?>

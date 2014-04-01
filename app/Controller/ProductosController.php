@@ -112,6 +112,15 @@ class ProductosController extends AppController {
  * @return void
  */
 	public function admin_edit($id = null) {
+		$cartuchos = $this->Producto->Cartucho->find('list');
+		$this->set(compact('cartuchos'));
+		
+		$tintas = $this->Producto->Tinta->find('list');
+		$this->set(compact('tintas'));
+
+		$recipientes = $this->Producto->Recipiente->find('list');
+		$this->set(compact('recipientes'));
+			
 		if (!$this->Producto->exists($id)) {
 			throw new NotFoundException(__('Invalid producto'));
 		}

@@ -15,14 +15,15 @@ class NoticiasController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'Session');
 	
 	
 	public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('inicio');
     }
-
+	
+	
 /**
  * index method
  *
@@ -84,6 +85,8 @@ class NoticiasController extends AppController {
 		}
 	}
 
+
+
 /**
  * edit method
  *
@@ -91,22 +94,51 @@ class NoticiasController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_edit($id = null) {
-		if (!$this->Noticia->exists($id)) {
-			throw new NotFoundException(__('Invalid noticia'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Noticia->save($this->request->data)) {
-				$this->Session->setFlash(__('The noticia has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The noticia could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('Noticia.' . $this->Noticia->primaryKey => $id));
-			$this->request->data = $this->Noticia->find('first', $options);
-		}
-	}
+   public function admin_edit($id = null){
+       if (!$this->Noticia->exists($id)) {
+            throw new NotFoundException(__('Invalid Noticia.'));
+        }
+        $this->Noticia->set('noticia', $noticia = $this->Noticia->findById($id));
+		if (!$noticia) {
+            throw new NotFoundException('<div class="alert alert-error">'.__('Invalid noticia.').'</div>');
+        }
+        if ($this->request->is('post') || $this->request->is('put')) {
+            $this->Noticia->id = $id;
+        
+		    #tratamiento de la foto
+            $archivo = $this->request->data['Noticia']['archivo'];
+		    #Si el usuario selecciono algo nuevo
+            if(!$archivo == NULL){
+                #Si hubo un error, como el tamaño de archivo demasiado grande.
+                if($this->request->data['Noticia']['archivo']['error']!=0){
+                    $this->Session->setFlash('<div class="alert alert-error">'.__('The noticia could not be saved. Check the file size.').'</div>');
+                }
+                #Si el archivo posee una extensión no válida
+                elseif(!(($this->request->data['Noticia']['archivo']['type'] == 'image/png') || ($this->request->data['Noticia']['archivo']['type'] == 'image/jpeg'))){
+                    $this->Session->setFlash('<div class="alert alert-error">'.__('The archivo could not be saved. Check the file extension.').'</div>');
+                    }
+                    #Si no hay ningún tipo de error, y el tamaño es mayor a 0
+                    elseif( ($this->request->data['Noticia']['archivo']['error'] == 0) && ($this->request->data['Noticia']['archivo']['size'] > 0)){
+                        $destino = WWW_ROOT.'img/noticias'.DS;
+						
+                        if(move_uploaded_file($archivo['tmp_name'], $destino.$archivo['name'])){
+                            $this->Session->setFlash('<div class="alert alert-success">'.__('The archivo has been saved.').'</div>');
+                            $this->Noticia->set('archivo', $archivo['name']);    
+                        }
+                    }
+            }
+            $noticia['Noticia']['archivo'] = $archivo['name'];
+            if ($this->Noticia->save($noticia)) {
+                $this->Session->setFlash('<div class="alert alert-success">'.__('Your noticia has been updated.').'</div>');
+               	$this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash('<div class="alert alert-error">'.__('Unable to update your noticia.').'</div>');
+            }
+        }
+        if (!$this->request->data) {
+            $this->request->data = $noticia;
+        }
+    }
 
 /**
  * delete method

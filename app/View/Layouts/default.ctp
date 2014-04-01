@@ -50,10 +50,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 </head>
 <body>
 	<div class="col-md-12">
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-default navbar-peque" role="navigation">
     	   	<ul class="nav navbar-nav nav-pills navbar-right menu-icono">
     	   		<li class="visible-sm visible-xs">
-    	   			<a href="/pages/inicio" class="menu-azul-peque"><i class="fa fa-home "></i></a>
+    	   			<a href="/inicio" class="menu-azul-peque"><i class="fa fa-home "></i></a>
     	   		</li>
     	   		<li class="visible-sm visible-xs">
     	   			<a href="/pages/producto" class="menu-azul-peque"><i class="fa fa-tint "></i></a> 
@@ -67,7 +67,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
     	   		<li class="visible-sm visible-xs">
     	   			<a href="/contactos/index" class="menu-azul-peque"><i class="fa fa-envelope"></i></a>
     	   		</li>
-    	   		<li><a class="menu-login" href="/users/login">[ ingresar ]</a> </li>
+    	   		<li><a class="menu-login menu-azul-peque" href="/users/login">[ ingresar ]</a> </li>
 			<!--	<li><?php echo $this->Html->link('Ingles', array('#'));?></li>
 				<li><?php echo $this->Html->link('Español', array('#'));?></li>-->     	   		
     	   	</ul>
@@ -88,7 +88,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
   			<div class="col-lg-6 col-md-7 menu-acciones visible-lg">
   				<div class="row">
   					<div class="col-md-2 text-center">
-						<a href="/pages/inicio" class="menu-azul"><i class="fa fa-home "></i><br>INICIO</a>  					
+						<a href="/inicio" class="menu-azul"><i class="fa fa-home "></i><br>INICIO</a>  					
 					</div>
   					<div class="col-md-2 text-center">
 						<a href="/pages/producto" class="menu-azul"><i class="fa fa-tint "></i><br>PRODUCTOS</a>  					

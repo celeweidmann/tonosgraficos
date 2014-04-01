@@ -12,7 +12,7 @@
 	</div>
 	<div class="col-md-10 col-lg-10">
 		<div class="noticias form">
-			<?php echo $this->Form->create('Noticia'); ?>
+			<?php echo $this->Form->create('Noticia',array('enctype' => 'multipart/form-data')); ?>
 			<fieldset>
 				<legend><h3><?php echo __('Edit Noticia'); ?></h3></legend>
 				<?php
@@ -20,7 +20,7 @@
 					echo $this->Form->input('title');
 					echo $this->Form->input('description');
 					echo $this->Form->input('link');
-					echo $this->Form->input('archivo');
+					echo $this->Form->input('archivo', array('type'=>'file'));
 					echo $this->Form->input('publicado');
 				?>
 			</fieldset>

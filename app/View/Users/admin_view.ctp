@@ -15,6 +15,7 @@
 	<div class="col-md-10">
 		<div class="users view">
 			<legend><h3><?php echo __('User'); ?></h3></legend>
+			<!--
 			<dl>
 				<dt><?php echo __('Id'); ?></dt>
 				<dd>
@@ -66,7 +67,49 @@
 					<?php echo h($user['User']['modified']); ?>
 					&nbsp;
 				</dd>
-			</dl>
+			</dl>-->
+			
+			<table class="table table-striped">
+				<tr>
+					<td>Id</td>
+					<td><?php echo ($user['User']['id']); ?></td>
+				</tr>
+				<tr>
+					<td>Username</td>
+					<td><?php echo ($user['User']['username']); ?></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><?php echo ($user['User']['password']); ?></td>
+				</tr>
+				<tr>
+					<td>Role</td>
+					<td><?php echo ($user['User']['role']); ?></td>
+				</tr><tr>
+					<td>Nombre</td>
+					<td><?php echo ($user['User']['name']); ?></td>
+				</tr>
+				<tr>
+					<td>Apellido</td>
+					<td><?php echo ($user['User']['surname']); ?></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><?php echo ($user['User']['email']); ?></td>
+				</tr>
+				<tr>
+					<td>Teléfono</td>
+					<td><?php echo ($user['User']['telefono']); ?></td>
+				</tr>
+				<tr>
+					<td>Creado</td>
+					<td><?php echo ($user['User']['created']); ?></td>
+				</tr>
+				<tr>
+					<td>Modificado</td>
+					<td><?php echo ($user['User']['modified']); ?></td>
+				</tr>
+			</table>
 		</div>
 	</div>
 </div>

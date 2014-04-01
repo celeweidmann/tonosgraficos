@@ -17,8 +17,6 @@
 				<legend><h3><?php echo __('Edit Pedido'); ?></h3></legend>
 				<?php
 					echo $this->Form->input('id');
-					//echo $this->Form->input('estado', array('type'=>'select'));
-					//echo $this->Form->input('Estado');
 					echo $this->Form->input('estado_id');
 					echo $this->Form->input('transporte_id');
 					echo $this->Form->input('costo');

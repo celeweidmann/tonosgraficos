@@ -22,12 +22,20 @@
 				</dd>
 				<dt><?php echo __('Estado Id'); ?></dt>
 				<dd>
-					<?php echo h($pedido['Pedido']['estado_id']); ?>
+					<!--<?php echo h($pedido['Pedido']['estado_id']); ?>-->
+					<?php echo h($pedido['Estado']['name']); ?>
+					&nbsp;
+				</dd>
+				<dt><?php echo __('Cliente'); ?></dt>
+				<dd>
+					<!--<?php echo h($pedido['Pedido']['transporte_id']); ?>-->
+					<?php echo h($pedido['Pedido']['cliente']); ?>
 					&nbsp;
 				</dd>
 				<dt><?php echo __('Transporte Id'); ?></dt>
 				<dd>
-					<?php echo h($pedido['Pedido']['transporte_id']); ?>
+					<!--<?php echo h($pedido['Pedido']['transporte_id']); ?>-->
+					<?php echo h($pedido['Transporte']['name']); ?>
 					&nbsp;
 				</dd>
 				<dt><?php echo __('Costo'); ?></dt>
@@ -38,23 +46,40 @@
 			</dl>
 		</div>
 		<div class="row">
+			<legend><h3>Items</h3></legend>
 			<table  class="table table-striped">
 				<thead>
 					<tr>
-						<th>Item</th>
+						<th>Marca</th>
+						<th>Modelo</th>
+						<th>Cartucho</th>
+						<th>Tinta</th>
+						<th>Recipiente</th>
+						<th>Costo</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Item 1</td>
-					</tr>
-					<tr>
-						<td>Item 2</td>
-					</tr>
-					<tr>
-						<td>Item 2</td>
-					</tr>
+					
+					<?php 
+						foreach ($items as $item):
+							echo '<tr>';
+							echo '<td>'.$item['Marca']['name'].'</td>';
+							echo '<td>'.$item['Modelo']['name'].'</td>';
+							echo '<td>'.$item['Cartucho']['name'].'</td>';
+							echo '<td>'.$item['Item']['tinta'].'</td>';
+							echo '<td>'.$item['Item']['recipiente'].'</td>';
+							echo '<td>'.$item['Item']['costo'].'</td>';
+							echo '</tr>';
+						endforeach;
+					?>
 				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="5">Total</th>
+						<th> <?php echo $pedido['Pedido']['costo'];?></th>
+					</tr>
+					
+				</tfoot>
 			</table>
 		</div>
 	</div>

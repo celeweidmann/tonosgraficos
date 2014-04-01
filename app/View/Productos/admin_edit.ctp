@@ -18,7 +18,7 @@
 				<?php
 					echo $this->Form->input('id');
 					echo $this->Form->input('precio');
-					echo $this->Form->input('cartucho_id');
+					echo $this->Form->input('cartucho_id', array('type'=>'select'));
 					echo $this->Form->input('tinta_id');
 					echo $this->Form->input('recipiente_id');
 				?>

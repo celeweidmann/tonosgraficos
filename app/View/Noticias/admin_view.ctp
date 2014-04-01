@@ -14,6 +14,7 @@
 	<div class="col-md-10 col-lg-10">
 		<div class="noticias view">
 			<legend><h3><?php echo __('Noticia'); ?></h3></legend>
+			<!--
 			<dl>
 				<dt class="vertical"><?php echo __('Id'); ?></dt>
 				<dd>
@@ -35,7 +36,37 @@
 					<?php echo h($noticia['Noticia']['archivo']); ?>
 					&nbsp;
 				</dd>
-			</dl>
+			</dl>-->
+			<table class="table table-striped table-bordered">
+				<tr>
+					<td>Id</td>
+					<td><?php echo ($noticia['Noticia']['id']); ?></td>
+				</tr>
+				<tr>
+					<td>Title</td>
+					<td><?php echo ($noticia['Noticia']['title']); ?></td>
+				</tr>
+				<tr>
+					<td>Description</td>
+					<td><?php echo ($noticia['Noticia']['description']); ?></td>
+				</tr>
+				<tr>
+					<td>Image</td>
+					<td><?php echo ($noticia['Noticia']['archivo']); ?></td>
+				</tr>
+				<tr>
+					<td>Publicado</td>
+					<td>
+					<?php 
+						if($noticia['Noticia']['publicado'])
+							echo 'SI';
+						else 
+							echo 'No';
+					?>
+					</td><!--
+					<td><?php echo ($noticia['Noticia']['publicado']); ?></td>-->
+				</tr>
+			</table>
 		</div>
 	</div>
 </div>

@@ -7,7 +7,7 @@
 			<th><?php echo $this->Paginator->sort('color'); ?></th>
 			<th><?php echo $this->Paginator->sort('cantidad'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
+			<!--<th><?php echo $this->Paginator->sort('modified'); ?></th>-->
 			<!--<th><?php echo $this->Paginator->sort('id_cartucho'); ?></th>
 			<th><?php echo $this->Paginator->sort('id_modelo'); ?></th>
 			<th><?php echo $this->Paginator->sort('id_marca'); ?></th>
@@ -16,18 +16,18 @@
 			<th><?php echo $this->Paginator->sort('cartucho'); ?></th>
 			<th><?php echo $this->Paginator->sort('modelo'); ?></th>
 			<th><?php echo $this->Paginator->sort('marca'); ?></th>
-			<th><?php echo $this->Paginator->sort('id_pedido'); ?></th>
-			<th><?php echo $this->Paginator->sort('id_producto'); ?>
+			<th><?php echo $this->Paginator->sort('pedido_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('producto_id'); ?>
 			<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($items as $item): ?>
 	<tr>
 		<td><?php echo h($item['Item']['id']); ?>&nbsp;</td>
 		<td><?php echo h($item['Item']['costo']); ?>&nbsp;</td>
-		<td><?php echo h($item['Item']['color']); ?>&nbsp;</td>
-		<td><?php echo h($item['Item']['cantidad']); ?>&nbsp;</td>
+		<td><?php echo h($item['Item']['tinta']); ?>&nbsp;</td>
+		<td><?php echo h($item['Item']['recipiente']); ?>&nbsp;</td>
 		<td><?php echo h($item['Item']['created']); ?>&nbsp;</td>
-		<td><?php echo h($item['Item']['modified']); ?>&nbsp;</td>
+		<!--<td><?php echo h($item['Item']['modified']); ?>&nbsp;</td>-->
 		<!--<td><?php echo h($item['Item']['id_cartucho']); ?>&nbsp;</td>-->
 		<td><?php echo h($item['Cartucho']['name']); ?>&nbsp;</td>
 		<!--<td><?php echo h($item['Item']['id_modelo']); ?>&nbsp;</td>
@@ -36,8 +36,8 @@
 		<td><?php echo h($item['Item']['id_producto']); ?>&nbsp;</td>-->
 		<td><?php echo h($item['Modelo']['name']); ?>&nbsp;</td>
 		<td><?php echo h($item['Marca']['name']); ?>&nbsp;</td>
-		<td><?php echo h($item['Item']['id_pedido']); ?>&nbsp;</td>
-		<td><?php echo h($item['Item']['id_producto']); ?>&nbsp;</td>
+		<td><?php echo h($item['Item']['pedido_id']); ?>&nbsp;</td>
+		<td><?php echo h($item['Item']['producto_id']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $item['Item']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $item['Item']['id'])); ?>

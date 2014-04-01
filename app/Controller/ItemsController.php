@@ -66,6 +66,17 @@ class ItemsController extends AppController {
  * @return void
  */
 	public function admin_edit($id = null) {
+		$marcas = $this->Item->Marca->find('list');
+		$this->set(compact('marcas'));
+		$modelos = $this->Item->Modelo->find('list');
+		$this->set(compact('modelos'));
+		$cartuchos = $this->Item->Cartucho->find('list');
+		$this->set(compact('cartuchos'));
+		$recipientes = $this->Item->Producto->Recipiente->find('list');
+		$this->set(compact('recipientes'));		
+		$tintas = $this->Item->Producto->Tinta->find('list');
+		$this->set(compact('tintas'));
+		
 		if (!$this->Item->exists($id)) {
 			throw new NotFoundException(__('Invalid item'));
 		}

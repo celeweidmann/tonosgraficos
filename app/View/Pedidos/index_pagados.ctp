@@ -40,7 +40,7 @@
 					<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 					<th class="actions"><?php echo __('Actions'); ?></th>
 			</tr>
-			<?php foreach ($pedidospendientes as $pedido): ?>
+			<?php foreach ($pedidospagados as $pedido): ?>
 			<tr>
 				<td><?php echo h($pedido['Pedido']['id']); ?>&nbsp;</td>
 				<!--<td><?php echo h($pedido['Pedido']['estado_id']); ?>&nbsp;</td>-->

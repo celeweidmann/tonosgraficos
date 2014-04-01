@@ -30,7 +30,8 @@
 	Router::connect('/', array('controller' => 'noticias', 'action' => 'inicio'));
 	Router::connect('/producto', array('controller' => 'pages', 'action' => 'display', 'producto'));
 	//Router::connect('/inicio', array('controller' => 'pages', 'action' => 'display', 'inicio'));
-	Router::connect('/inicio', array('controller' => 'noticias', 'action' => 'display', 'inicio'));
+	//Router::connect('/inicio', array('controller' => 'noticias', 'action' => 'display', 'inicio'));
+	Router::connect('/inicio', array('controller' => 'noticias', 'action' => 'inicio'));
 	Router::connect('/soporte_tecnico', array('controller' => 'pages', 'action' => 'display', 'soporte_tecnico'));
 	Router::connect('/gracias', array('controller' => 'pages', 'action' => 'display', 'gracias'));
 	Router::connect('/contacto', array('controller' => 'pages', 'action' => 'display', 'contacto'));
